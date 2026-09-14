@@ -9,6 +9,7 @@ import {
   SCENARIO_OOST_Z,
   SCENARIO_UNKNOWN,
   a6GeoCopy,
+  a6GeoErrorState,
   a6PointInMaxBounds,
   closedDeckCopy,
   lockEmphasis,
@@ -160,8 +161,12 @@ describe("A6 client-only simulation", () => {
   it("GPS copy never invents a location", () => {
     assert.equal(a6GeoCopy("idle"), null);
     assert.equal(a6GeoCopy("shown"), null);
-    assert.equal(a6GeoCopy("denied"), "Locatie geweigerd. Sta toegang toe in de browser om je positie te zien.");
-    assert.equal(a6GeoCopy("unavailable"), "Locatie is nu niet beschikbaar.");
+    assert.equal(a6GeoCopy("denied"), "Locatie geweigerd. Schakel locatie in via je browserinstellingen.");
+    assert.equal(a6GeoCopy("unavailable"), "Locatie niet beschikbaar.");
+    assert.equal(a6GeoErrorState({ code: 1 }), "denied");
+    assert.equal(a6GeoErrorState({ code: 2 }), "unavailable");
+    assert.equal(a6GeoErrorState({ code: 3 }), "unavailable");
+    assert.equal(a6GeoErrorState({ message: "User denied Geolocation" }), "denied");
     assert.equal(a6GeoCopy("outside"), "Je bent buiten het kaartgebied van de sluizen.");
     assert.equal(a6PointInMaxBounds(3.82, 51.33, [[3.8, 51.32], [3.84, 51.34]]), true);
     assert.equal(a6PointInMaxBounds(4.5, 52.1, [[3.8, 51.32], [3.84, 51.34]]), false);

@@ -38,6 +38,7 @@ import {
   SIM_PAINTS,
   SIM_PAINT_LABEL,
   a6GeoCopy,
+  a6GeoErrorState,
   a6PointInMaxBounds,
   closedDeckCopy,
   lockEmphasis,
@@ -762,6 +763,7 @@ export function DraftA6Map({
   const refitRef = useRef<() => void>(() => undefined);
   const frameRouteRef = useRef<() => void>(() => undefined);
   const routeCoordsRef = useRef<LngLat[]>([]);
+  const geoReqRef = useRef(0);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
   const [webglOk, setWebglOk] = useState(true);
@@ -1006,50 +1008,79 @@ export function DraftA6Map({
 
   const flyHome = () => frameRouteRef.current();
   const flyMe = () => {
+    const req = ++geoReqRef.current;
     const map = mapRef.current;
+    const fail = (state: A6GeoState) => {
+      if (geoReqRef.current !== req) return;
+      geoMarkerRef.current?.remove();
+      geoMarkerRef.current = null;
+      setGeoState(state);
+    };
     const canGeo =
       typeof navigator !== "undefined" &&
       Boolean(navigator.geolocation) &&
       (typeof window === "undefined" || window.isSecureContext);
     if (!canGeo) {
-      setGeoState("unavailable");
-      return;
-    }
-    if (!map) {
-      setGeoState("unavailable");
+      fail("unavailable");
       return;
     }
     setGeoState("locating");
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const lng = pos.coords.longitude;
-        const lat = pos.coords.latitude;
-        if (!a6PointInMaxBounds(lng, lat, a3MaxBounds())) {
-          geoMarkerRef.current?.remove();
-          geoMarkerRef.current = null;
-          setGeoState("outside");
-          return;
-        }
-        setGeoState("shown");
-        geoMarkerRef.current?.remove();
-        geoMarkerRef.current = new maplibregl.Marker({
-          element: makeHtmlLabel({
-            html: `<span style="display:block;width:16px;height:16px;border-radius:50%;background:#38bdf8;border:2px solid #f8fafc;box-shadow:0 0 0 6px rgba(56,189,248,0.35)" title="Jouw locatie"></span>`,
-            z: 8,
-          }),
-          anchor: "center",
+    window.setTimeout(() => {
+      if (geoReqRef.current !== req) return;
+      setGeoState((current) => (current === "locating" ? "unavailable" : current));
+    }, 8000);
+    const runGet = () => {
+      if (geoReqRef.current !== req) return;
+      if (!map) {
+        fail("unavailable");
+        return;
+      }
+      try {
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            if (geoReqRef.current !== req) return;
+            const lng = pos.coords.longitude;
+            const lat = pos.coords.latitude;
+            if (!a6PointInMaxBounds(lng, lat, a3MaxBounds())) {
+              fail("outside");
+              return;
+            }
+            setGeoState("shown");
+            geoMarkerRef.current?.remove();
+            geoMarkerRef.current = new maplibregl.Marker({
+              element: makeHtmlLabel({
+                html: `<span style="display:block;width:16px;height:16px;border-radius:50%;background:#38bdf8;border:2px solid #f8fafc;box-shadow:0 0 0 6px rgba(56,189,248,0.35)" title="Jouw locatie"></span>`,
+                z: 8,
+              }),
+              anchor: "center",
+            })
+              .setLngLat([lng, lat])
+              .addTo(map);
+            map.flyTo({ center: [lng, lat], zoom: 14.2, duration: 800 });
+          },
+          (err) => fail(a6GeoErrorState(err)),
+          { enableHighAccuracy: false, timeout: 7000, maximumAge: 0 },
+        );
+      } catch (err) {
+        fail(a6GeoErrorState(err as { message?: string }));
+      }
+    };
+    const permissions = navigator.permissions;
+    if (permissions && typeof permissions.query === "function") {
+      permissions
+        .query({ name: "geolocation" })
+        .then((status) => {
+          if (geoReqRef.current !== req) return;
+          if (status.state === "denied") {
+            fail("denied");
+            return;
+          }
+          runGet();
         })
-          .setLngLat([lng, lat])
-          .addTo(map);
-        map.flyTo({ center: [lng, lat], zoom: 14.2, duration: 800 });
-      },
-      (err) => {
-        geoMarkerRef.current?.remove();
-        geoMarkerRef.current = null;
-        setGeoState(err.code === 1 || /den(y|ied)|permission/i.test(err.message) ? "denied" : "unavailable");
-      },
-      { enableHighAccuracy: true, timeout: 12_000, maximumAge: 15_000 },
-    );
+        .catch(() => runGet());
+      return;
+    }
+    runGet();
   };
   const geoCopy = a6GeoCopy(geoState);
 
@@ -1266,7 +1297,12 @@ export function DraftA6Map({
           </div>
         </div>
         {geoCopy ? (
-          <p className="pointer-events-auto mx-auto mb-1 w-full rounded-md bg-slate-950/85 px-2 py-1 text-center text-[11px] leading-4 text-amber-100" data-testid="a6-geo-msg">
+          <p
+            role="status"
+            aria-live="polite"
+            className="pointer-events-auto mx-auto mb-1.5 w-full rounded-lg border border-amber-400/80 bg-amber-950 px-3 py-2 text-center text-[12px] font-medium leading-4 text-amber-50 shadow-[0_8px_24px_rgba(0,0,0,0.45)]"
+            data-testid="a6-geo-msg"
+          >
             {geoCopy}
           </p>
         ) : null}
@@ -1278,7 +1314,7 @@ export function DraftA6Map({
             aria-disabled={geoState === "locating"}
             className={cn(
               "inline-flex min-h-10 items-center justify-center gap-1 rounded-md bg-slate-950/70",
-              geoState === "locating" && "cursor-not-allowed opacity-50",
+              geoState === "locating" && "opacity-80",
             )}
             data-testid="a6-locate"
           >

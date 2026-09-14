@@ -15,7 +15,10 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/terneuzen/:draft(a|a2|a3|a4|a5|a6|b|c)",
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow, nocache" }],
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow, nocache" },
+          { key: "Permissions-Policy", value: "geolocation=(self)" },
+        ],
       },
     ];
   },

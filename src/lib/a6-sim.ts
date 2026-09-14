@@ -144,14 +144,21 @@ export function a6GeoCopy(state: A6GeoState): string | null {
     case "locating":
       return "Locatie ophalen…";
     case "denied":
-      return "Locatie geweigerd. Sta toegang toe in de browser om je positie te zien.";
+      return "Locatie geweigerd. Schakel locatie in via je browserinstellingen.";
     case "unavailable":
-      return "Locatie is nu niet beschikbaar.";
+      return "Locatie niet beschikbaar.";
     case "outside":
       return "Je bent buiten het kaartgebied van de sluizen.";
     default:
       return null;
   }
+}
+
+export function a6GeoErrorState(err: { code?: number; message?: string } | null | undefined): A6GeoState {
+  const code = err?.code;
+  const message = String(err?.message ?? "");
+  if (code === 1 || /den(y|ied)|permission/i.test(message)) return "denied";
+  return "unavailable";
 }
 
 export function a6PointInMaxBounds(
