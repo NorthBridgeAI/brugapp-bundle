@@ -1,0 +1,98 @@
+{
+  "phase": 2,
+  "title": "Terneuzen Noordzeesluizen geographic ground truth",
+  "retrievedAt": "2026-09-14T08:58:37Z",
+  "crs": "CRS84 / WGS84",
+  "bbox": {
+    "west": 3.814,
+    "south": 51.3255,
+    "east": 3.8245,
+    "north": 51.3375
+  },
+  "operationalLocks": [
+    "westsluis",
+    "nieuwe-sluis",
+    "oostsluis"
+  ],
+  "notOperational": [
+    "middensluis"
+  ],
+  "ndwIsrs": {
+    "NLTNZ130B20497600005": {
+      "bridgeId": "oostsluis-binnenhoofd",
+      "officialName": "Brug over binnenhoofd Oostsluis Terneuzen",
+      "compass": "south"
+    },
+    "NLTNZ130B20497800009": {
+      "bridgeId": "oostsluis-buitenhoofd",
+      "officialName": "Brug over buitenhoofd Oostsluis Terneuzen",
+      "compass": "north"
+    }
+  },
+  "neverPaintUnseenOpen": true,
+  "files": {
+    "locks": "locks-rws.geojson",
+    "chambers": "lock-chambers-rws.geojson",
+    "bridges": "bridges-rws.geojson",
+    "bridgeDecks": "bridges-bgt-decks.geojson",
+    "roundabouts": "roundabouts-nwb.geojson",
+    "roundaboutSurface": "roundabout-kennedylaan-bgt.geojson",
+    "roads": "roads-nwb-lock-island.geojson",
+    "water": "water-bgt.geojson",
+    "isrs": "isrs-rws.geojson",
+    "lockParts": "lock-structure-parts-bgt.geojson",
+    "corroborationA2": "corroboration-a2-osm-spans.geojson"
+  },
+  "sources": {
+    "rws_fis": {
+      "name": "Rijkswaterstaat Vaarwegen (FIS/VNDS) OGC API Features",
+      "url": "https://geo.rijkswaterstaat.nl/services/ogc/gdr/fis_vnds/ogc/features/v1",
+      "license": "Rijkswaterstaat open data (publieke OGC API)",
+      "retrievedAt": "2026-09-14T08:58:37Z",
+      "note": "Collections sluis_v, sluiskolk_v, brug, isrs_object. Polygon/point geometry as published; attributes length/width used where present."
+    },
+    "nwb": {
+      "name": "Nationaal Wegenbestand — Wegen (PDOK OGC API Features)",
+      "url": "https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1/collections/wegvakken",
+      "license": "CC0 1.0",
+      "retrievedAt": "2026-09-14T08:58:37Z",
+      "note": "Wegvakken bbox Terneuzen Noordzeesluizen. FOW=4 + BST=NRB = roundabout carriageway (NDW NWB docs).",
+      "serviceTimestamp": "2026-09-14T08:58:37Z"
+    },
+    "bgt": {
+      "name": "Basisregistratie Grootschalige Topografie (PDOK OGC API Features)",
+      "url": "https://api.pdok.nl/lv/bgt/ogc/v1",
+      "license": "CC0 1.0",
+      "retrievedAt": "2026-09-14T08:58:37Z",
+      "datetimeFilter": "2026-09-14T08:58:37Z",
+      "note": "Current objects only (status=bestaand, no eind_registratie). waterdeel, overbruggingsdeel, kunstwerkdeel_vlak, wegdeel."
+    },
+    "rws_news": {
+      "name": "Rijkswaterstaat nieuws — Nieuwe Sluis in Terneuzen koninklijk geopend",
+      "url": "https://www.rijkswaterstaat.nl/nieuws/archief/2024/10/nieuwe-sluis-in-terneuzen-koninklijk-geopend",
+      "published": "2024-10-11",
+      "retrievedAt": "2026-09-14",
+      "note": "427 m × 55 m × 16.44 m; Middensluis (1910) replaced by Nieuwe Sluis; Westsluis + Oostsluis remain."
+    },
+    "bam": {
+      "name": "BAM Infra — Nieuwe Sluis Terneuzen project page",
+      "url": "https://www.baminfra.nl/projecten/nieuwe-sluis-terneuzen",
+      "retrievedAt": "2026-09-14",
+      "note": "Design: lock 427×55×16.44 m; two bridges 84 m long × 18 m wide. Used to corroborate BGT deck size, not as geometry source."
+    },
+    "luchtfoto": {
+      "name": "PDOK Actueel_orthoHR WMS (check only — not geometry truth)",
+      "url": "https://service.pdok.nl/hwh/luchtfotorgb/wms/v1_0",
+      "layer": "Actueel_orthoHR",
+      "retrievedAt": "2026-09-14",
+      "bbox": [
+        3.812,
+        51.325,
+        3.825,
+        51.338
+      ],
+      "note": "Visual check of lock count, relative scale, roundabout, water. Photo vintage is the PDOK 'actueel' mosaic, not necessarily 2026."
+    }
+  },
+  "doNotUseForUiYet": false
+}

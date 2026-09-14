@@ -1,0 +1,1299 @@
+{
+  "type": "FeatureCollection",
+  "name": "roundabouts-nwb",
+  "groundTruth": true,
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "source": {
+    "name": "Nationaal Wegenbestand — Wegen (PDOK OGC API Features)",
+    "url": "https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1/collections/wegvakken",
+    "license": "CC0 1.0",
+    "retrievedAt": "2026-09-14T08:58:37Z",
+    "note": "Wegvakken bbox Terneuzen Noordzeesluizen. FOW=4 + BST=NRB = roundabout carriageway (NDW NWB docs).",
+    "serviceTimestamp": "2026-09-14T08:58:37Z"
+  },
+  "generatedAt": "2026-09-14T08:58:37Z",
+  "featureCount": 21,
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282551,
+        "objectId": 266410,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-nieuwe-oost",
+        "officialName": "Rotonde Buitenhaven tussen Nieuwe Sluis en Oostsluis",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8192417542841235,
+              51.33303223625733
+            ],
+            [
+              3.8192024909987667,
+              51.33302561681069
+            ],
+            [
+              3.8191653875363216,
+              51.33301531799031
+            ],
+            [
+              3.8191272475125806,
+              51.33300176874479
+            ],
+            [
+              3.8191053264910035,
+              51.332991714778544
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282559,
+        "objectId": 266411,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-nieuwe-oost",
+        "officialName": "Rotonde Buitenhaven tussen Nieuwe Sluis en Oostsluis",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819379274259764,
+              51.332714659257974
+            ],
+            [
+              3.81940999315539,
+              51.33272490263122
+            ],
+            [
+              3.819449260672618,
+              51.33274323174654
+            ],
+            [
+              3.8194785394299022,
+              51.332759898061504
+            ],
+            [
+              3.8195035622499196,
+              51.33277918255055
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282552,
+        "objectId": 276716,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-nieuwe-oost",
+        "officialName": "Rotonde Buitenhaven tussen Nieuwe Sluis en Oostsluis",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8191053264910035,
+              51.332991714778544
+            ],
+            [
+              3.8190752561984493,
+              51.332973648732974
+            ],
+            [
+              3.8190502823068573,
+              51.33295281490696
+            ],
+            [
+              3.819030696110408,
+              51.33292971617982
+            ],
+            [
+              3.8190173336133597,
+              51.332905083023896
+            ],
+            [
+              3.8190103228360757,
+              51.33287936667303
+            ],
+            [
+              3.8190097825474316,
+              51.33285328794036
+            ],
+            [
+              3.8190159780446495,
+              51.332827479709394
+            ],
+            [
+              3.8190286008418552,
+              51.332802567136454
+            ],
+            [
+              3.819047294872937,
+              51.33277926553672
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282557,
+        "objectId": 281657,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-nieuwe-oost",
+        "officialName": "Rotonde Buitenhaven tussen Nieuwe Sluis en Oostsluis",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8195463482249017,
+              51.33289819211248
+            ],
+            [
+              3.819537743819172,
+              51.33292080970132
+            ],
+            [
+              3.819524231188923,
+              51.33294238399126
+            ],
+            [
+              3.819505741080577,
+              51.33296263265644
+            ],
+            [
+              3.819482994282762,
+              51.332980959460585
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282553,
+        "objectId": 284941,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-nieuwe-oost",
+        "officialName": "Rotonde Buitenhaven tussen Nieuwe Sluis en Oostsluis",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819047294872937,
+              51.33277926553672
+            ],
+            [
+              3.8190679165434718,
+              51.332760932678006
+            ],
+            [
+              3.819092448509715,
+              51.332744451396685
+            ],
+            [
+              3.819120202626467,
+              51.332730261033696
+            ],
+            [
+              3.8191508716799514,
+              51.33271861546789
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282558,
+        "objectId": 284942,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-nieuwe-oost",
+        "officialName": "Rotonde Buitenhaven tussen Nieuwe Sluis en Oostsluis",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819482994282762,
+              51.332980959460585
+            ],
+            [
+              3.819450644848585,
+              51.33299991936133
+            ],
+            [
+              3.819413666943674,
+              51.33301524425797
+            ],
+            [
+              3.8193731012081904,
+              51.33302638537139
+            ],
+            [
+              3.8193301075532946,
+              51.33303299870661
+            ],
+            [
+              3.819285836645253,
+              51.33303500985052
+            ],
+            [
+              3.8192417542841235,
+              51.33303223625733
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 600483473,
+        "objectId": 301802,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-kennedylaan",
+        "officialName": "Rotonde Buitenhaven / Kennedylaan / Schependijk / Binnenvaartweg",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8217853745476913,
+              51.33323216644259
+            ],
+            [
+              3.8218144397194362,
+              51.33321781146388
+            ],
+            [
+              3.8218387216454026,
+              51.33320860827387
+            ],
+            [
+              3.8218626458786864,
+              51.333201468006386
+            ],
+            [
+              3.821898784651904,
+              51.3331938625913
+            ],
+            [
+              3.8219264588336697,
+              51.333190368772165
+            ],
+            [
+              3.8219644119599407,
+              51.33318845151781
+            ],
+            [
+              3.8219880561089594,
+              51.3331894884991
+            ],
+            [
+              3.8220221267074876,
+              51.333193326684786
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282554,
+        "objectId": 302165,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-nieuwe-oost",
+        "officialName": "Rotonde Buitenhaven tussen Nieuwe Sluis en Oostsluis",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8191508716799514,
+              51.33271861546789
+            ],
+            [
+              3.8191870924962323,
+              51.33270895594915
+            ],
+            [
+              3.8192251902246066,
+              51.332702816163085
+            ],
+            [
+              3.819264312192717,
+              51.332700286216976
+            ],
+            [
+              3.819303738099918,
+              51.33270144631412
+            ],
+            [
+              3.819342320392346,
+              51.33270628100533
+            ],
+            [
+              3.819379274259764,
+              51.332714659257974
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282556,
+        "objectId": 307217,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-nieuwe-oost",
+        "officialName": "Rotonde Buitenhaven tussen Nieuwe Sluis en Oostsluis",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8195035622499196,
+              51.33277918255055
+            ],
+            [
+              3.819523634922952,
+              51.33280078099474
+            ],
+            [
+              3.819538194546953,
+              51.33282399177946
+            ],
+            [
+              3.8195469731984497,
+              51.332848383369104
+            ],
+            [
+              3.8195497055528125,
+              51.33287332288252
+            ],
+            [
+              3.8195463482249017,
+              51.33289819211248
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Kennedylaan",
+        "wvkId": 600483485,
+        "objectId": 361569,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-kennedylaan",
+        "officialName": "Rotonde Buitenhaven / Kennedylaan / Schependijk / Binnenvaartweg",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.822039937919192,
+              51.333511186327875
+            ],
+            [
+              3.8220186772583005,
+              51.33351480412717
+            ],
+            [
+              3.8219953371056468,
+              51.333517457201545
+            ],
+            [
+              3.8219555373472955,
+              51.33351881024107
+            ],
+            [
+              3.8219175851494467,
+              51.33351650213595
+            ],
+            [
+              3.821894445042961,
+              51.333513314279855
+            ],
+            [
+              3.821870539508946,
+              51.33350850689416
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Kennedylaan",
+        "wvkId": 600483484,
+        "objectId": 364049,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-kennedylaan",
+        "officialName": "Rotonde Buitenhaven / Kennedylaan / Schependijk / Binnenvaartweg",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8222230121874747,
+              51.3333745023517
+            ],
+            [
+              3.822216059040159,
+              51.33339599966706
+            ],
+            [
+              3.8222023363836204,
+              51.333419549268065
+            ],
+            [
+              3.822183358452356,
+              51.333441499922415
+            ],
+            [
+              3.8221605966468073,
+              51.33346079258212
+            ],
+            [
+              3.8221324361111666,
+              51.3334784843624
+            ],
+            [
+              3.822101947720361,
+              51.333492908398455
+            ],
+            [
+              3.8220685484542964,
+              51.33350432655795
+            ],
+            [
+              3.822039937919192,
+              51.333511186327875
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Schependijk",
+        "wvkId": 600483486,
+        "objectId": 675710,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-kennedylaan",
+        "officialName": "Rotonde Buitenhaven / Kennedylaan / Schependijk / Binnenvaartweg",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8222046326161094,
+              51.33329013092852
+            ],
+            [
+              3.822215807962803,
+              51.33331112926055
+            ],
+            [
+              3.8222230225213747,
+              51.333335140010114
+            ],
+            [
+              3.82222484571629,
+              51.333353144812804
+            ],
+            [
+              3.8222230121874747,
+              51.3333745023517
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Schependijk",
+        "wvkId": 600483487,
+        "objectId": 684844,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-kennedylaan",
+        "officialName": "Rotonde Buitenhaven / Kennedylaan / Schependijk / Binnenvaartweg",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8220221267074876,
+              51.333193326684786
+            ],
+            [
+              3.8220533067684803,
+              51.333199265670814
+            ],
+            [
+              3.8220801843972634,
+              51.33320645939137
+            ],
+            [
+              3.8221143428055955,
+              51.33321896523645
+            ],
+            [
+              3.8221376423244418,
+              51.333230066526056
+            ],
+            [
+              3.8221587409106967,
+              51.333242576658925
+            ],
+            [
+              3.8221756364564445,
+              51.333256288929064
+            ],
+            [
+              3.8221907521786047,
+              51.33327168540864
+            ],
+            [
+              3.8222046326161094,
+              51.33329013092852
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483476,
+        "objectId": 1290122,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-kennedylaan",
+        "officialName": "Rotonde Buitenhaven / Kennedylaan / Schependijk / Binnenvaartweg",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821870539508946,
+              51.33350850689416
+            ],
+            [
+              3.8218568425140935,
+              51.333504987452436
+            ],
+            [
+              3.821834124739397,
+              51.33349784959364
+            ],
+            [
+              3.8218126007243343,
+              51.33348937925276
+            ],
+            [
+              3.821793823774721,
+              51.333480316520934
+            ],
+            [
+              3.8217752549177373,
+              51.33346936865102
+            ],
+            [
+              3.821758444380667,
+              51.33345736559416
+            ],
+            [
+              3.8217361914289127,
+              51.33343665883334
+            ],
+            [
+              3.8217246219868413,
+              51.3334224786821
+            ],
+            [
+              3.821716055720684,
+              51.33340860860254
+            ],
+            [
+              3.8217061189896433,
+              51.33338447132648
+            ],
+            [
+              3.821703062230342,
+              51.33336896717512
+            ],
+            [
+              3.821702029129792,
+              51.33335304071796
+            ],
+            [
+              3.8217032788781213,
+              51.33333750455285
+            ],
+            [
+              3.821706821126426,
+              51.33332232824296
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483501,
+        "objectId": 1293610,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-binnenvaartweg-noord",
+        "officialName": "Rotonde Binnenvaartweg noord (oost van Oostsluis-buitenhoofd)",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.82121192137426,
+              51.336214488498946
+            ],
+            [
+              3.821178870546519,
+              51.33621089935062
+            ],
+            [
+              3.8211423827936217,
+              51.33620348631721
+            ],
+            [
+              3.821108157762382,
+              51.33619286724299
+            ],
+            [
+              3.8210781730525616,
+              51.336179967737465
+            ],
+            [
+              3.8210501703185686,
+              51.336163678617645
+            ],
+            [
+              3.821026267532626,
+              51.336145017282504
+            ],
+            [
+              3.821007026199567,
+              51.33612435089161
+            ],
+            [
+              3.8209951680471845,
+              51.3361066048927
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600933181,
+        "objectId": 1293989,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-binnenvaartweg-noord",
+        "officialName": "Rotonde Binnenvaartweg noord (oost van Oostsluis-buitenhoofd)",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821271683037584,
+              51.33589125995001
+            ],
+            [
+              3.821301797914721,
+              51.33589466036407
+            ],
+            [
+              3.8213381450714694,
+              51.33590198155787
+            ],
+            [
+              3.8213708104019255,
+              51.33591204018796
+            ],
+            [
+              3.8213984683359525,
+              51.33592373062793
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483492,
+        "objectId": 1314450,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-binnenvaartweg-noord",
+        "officialName": "Rotonde Binnenvaartweg noord (oost van Oostsluis-buitenhoofd)",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821371502700867,
+              51.3361931697591
+            ],
+            [
+              3.8213529271265627,
+              51.33619939473092
+            ],
+            [
+              3.8213311992742796,
+              51.336205215914674
+            ],
+            [
+              3.82129437153056,
+              51.33621191289723
+            ],
+            [
+              3.821254788576556,
+              51.33621524646744
+            ],
+            [
+              3.8212311028504162,
+              51.336215377512524
+            ],
+            [
+              3.82121192137426,
+              51.336214488498946
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483477,
+        "objectId": 1315747,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-kennedylaan",
+        "officialName": "Rotonde Buitenhaven / Kennedylaan / Schependijk / Binnenvaartweg",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821706821126426,
+              51.33332232824296
+            ],
+            [
+              3.821710470900409,
+              51.3333118893908
+            ],
+            [
+              3.821717870414848,
+              51.33329697529919
+            ],
+            [
+              3.8217233361706158,
+              51.33328823841934
+            ],
+            [
+              3.821734758358506,
+              51.33327319859549
+            ],
+            [
+              3.8217562877047477,
+              51.33325218132297
+            ],
+            [
+              3.8217721986115847,
+              51.33324016858123
+            ],
+            [
+              3.8217853745476913,
+              51.33323216644259
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483491,
+        "objectId": 1319659,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-binnenvaartweg-noord",
+        "officialName": "Rotonde Binnenvaartweg noord (oost van Oostsluis-buitenhoofd)",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8213984683359525,
+              51.33592373062793
+            ],
+            [
+              3.8214227738469124,
+              51.335936922297904
+            ],
+            [
+              3.8214437965070323,
+              51.33595167906644
+            ],
+            [
+              3.8214595421051034,
+              51.33596546587366
+            ],
+            [
+              3.8214767967471355,
+              51.33598547617023
+            ],
+            [
+              3.8214867271626467,
+              51.336001432335735
+            ],
+            [
+              3.821495874407061,
+              51.33602349127547
+            ],
+            [
+              3.8214993123722616,
+              51.33604043897849
+            ],
+            [
+              3.821499534566134,
+              51.33606327695171
+            ],
+            [
+              3.8214963704745686,
+              51.3360802258036
+            ],
+            [
+              3.8214877168547234,
+              51.336102405048166
+            ],
+            [
+              3.8214779845559144,
+              51.336118366586206
+            ],
+            [
+              3.8214610751082385,
+              51.336138546910824
+            ],
+            [
+              3.8214453792019905,
+              51.33615263024405
+            ],
+            [
+              3.8214211177546256,
+              51.33616956517223
+            ],
+            [
+              3.8213978678964104,
+              51.33618210852079
+            ],
+            [
+              3.821371502700867,
+              51.3361931697591
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600933182,
+        "objectId": 1324886,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-binnenvaartweg-noord",
+        "officialName": "Rotonde Binnenvaartweg noord (oost van Oostsluis-buitenhoofd)",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.820987634336308,
+              51.33601485976164
+            ],
+            [
+              3.820994494928614,
+              51.33600002836575
+            ],
+            [
+              3.8210039004224856,
+              51.335985231191955
+            ],
+            [
+              3.821023310354807,
+              51.335963286526386
+            ],
+            [
+              3.8210372140249467,
+              51.33595124688402
+            ],
+            [
+              3.821054130256726,
+              51.335939247750055
+            ],
+            [
+              3.8210727279129495,
+              51.33592843994342
+            ],
+            [
+              3.821093010073263,
+              51.335918733603265
+            ],
+            [
+              3.8211275990285656,
+              51.33590616298337
+            ],
+            [
+              3.8211512070829627,
+              51.335899917612515
+            ],
+            [
+              3.8211754800595457,
+              51.33589520950348
+            ],
+            [
+              3.821200421039881,
+              51.335891948795634
+            ],
+            [
+              3.821224012411084,
+              51.335890378065244
+            ],
+            [
+              3.821249422514297,
+              51.335890180306464
+            ],
+            [
+              3.821271683037584,
+              51.33589125995001
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483503,
+        "objectId": 1332165,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "roundabout-carriageway",
+        "id": "roundabout-binnenvaartweg-noord",
+        "officialName": "Rotonde Binnenvaartweg noord (oost van Oostsluis-buitenhoofd)",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8209951680471845,
+              51.3361066048927
+            ],
+            [
+              3.820985821701997,
+              51.336085587890075
+            ],
+            [
+              3.8209808965127476,
+              51.33606178765427
+            ],
+            [
+              3.8209815722709313,
+              51.33603788293467
+            ],
+            [
+              3.820987634336308,
+              51.33601485976164
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "clusters": [
+    {
+      "id": "roundabout-nieuwe-oost",
+      "between": [
+        "nieuwe-sluis",
+        "oostsluis"
+      ],
+      "approx": {
+        "lng": 3.8193,
+        "lat": 51.33285
+      }
+    },
+    {
+      "id": "roundabout-kennedylaan",
+      "role": "road connection east toward Kennedylaan / Binnenvaartweg / Schependijk",
+      "approx": {
+        "lng": 3.8219,
+        "lat": 51.3333
+      }
+    },
+    {
+      "id": "roundabout-binnenvaartweg-noord",
+      "role": "road connection north-east of Oostsluis buitenhoofd along Binnenvaartweg",
+      "approx": {
+        "lng": 3.82125,
+        "lat": 51.33605
+      }
+    }
+  ]
+}

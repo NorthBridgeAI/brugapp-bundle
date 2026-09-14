@@ -1,0 +1,138 @@
+{
+  "type": "FeatureCollection",
+  "name": "corroboration-a2-osm-spans",
+  "groundTruth": false,
+  "source": {
+    "name": "Live Brugapp A2 BUITENHAVEN_SPANS (OSM ways)",
+    "path": "src/lib/lock-map.ts",
+    "retrievedAt": "2026-09-14",
+    "note": "Not truth. Kept so Phase 3+ can see where A2 diverges from official geometry."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "buitenhaven-noord",
+        "kind": "a2-osm-span-corroboration",
+        "osmWay": 7614741,
+        "isrs": "NLTNZ130B20497800009",
+        "groundTruth": false,
+        "_source": "brugapp-a2-lock-map",
+        "_note": "OSM/A2 is corroboration only — not geographic truth."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.8195971,
+            51.3360219
+          ],
+          [
+            3.8199592,
+            51.3360568
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "buitenhaven-oostsluis",
+        "kind": "a2-osm-span-corroboration",
+        "osmWay": 7614718,
+        "isrs": "NLTNZ130B20497600005",
+        "groundTruth": false,
+        "_source": "brugapp-a2-lock-map",
+        "_note": "OSM/A2 is corroboration only — not geographic truth."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.820291,
+            51.3330268
+          ],
+          [
+            3.8206566,
+            51.3330576
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "buitenhaven-midden",
+        "kind": "a2-osm-span-corroboration",
+        "osmWay": 1184744248,
+        "isrs": "",
+        "groundTruth": false,
+        "_source": "brugapp-a2-lock-map",
+        "_note": "OSM/A2 is corroboration only — not geographic truth."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.8183694,
+            51.3319095
+          ],
+          [
+            3.8171467,
+            51.3316072
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "buitenhaven-westsluis",
+        "kind": "a2-osm-span-corroboration",
+        "osmWay": 7614690,
+        "isrs": "",
+        "groundTruth": false,
+        "_source": "brugapp-a2-lock-map",
+        "_note": "OSM/A2 is corroboration only — not geographic truth."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.8157592,
+            51.3296126
+          ],
+          [
+            3.8163039,
+            51.3297833
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "buitenhaven-zuid",
+        "kind": "a2-osm-span-corroboration",
+        "osmWay": 7614035,
+        "isrs": "",
+        "groundTruth": false,
+        "_source": "brugapp-a2-lock-map",
+        "_note": "OSM/A2 is corroboration only — not geographic truth."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.8180858,
+            51.3266823
+          ],
+          [
+            3.8186301,
+            51.3268541
+          ]
+        ]
+      }
+    }
+  ]
+}

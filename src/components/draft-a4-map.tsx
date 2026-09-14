@@ -1,0 +1,829 @@
+"use client";
+
+import { useEffect, useMemo, useRef, useState } from "react";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
+import Link from "next/link";
+import { ArrowLeft, Info, X } from "lucide-react";
+import { ConceptChip } from "@/components/lock-hud";
+import {
+  A3_BRIDGE_COPY,
+  A3_CHAMBERS,
+  A3_DECKS,
+  A3_ROADS,
+  A3_ROUNDABOUTS,
+  A3_WATER,
+  A3_BEARING,
+  a3Center,
+  a3FitBounds,
+  a3MaxBounds,
+  decksWithPaint,
+  lockLabelPoints,
+  type LngLat,
+} from "@/lib/a3-geo";
+import { recommendA3Route, routeLineGeoJSON } from "@/lib/a3-routes";
+import {
+  A3_NDW_ISRS,
+  A3_PAINT_COLOR,
+  A3_PAINT_LABEL,
+  type A3Advice,
+  type A3BridgeId,
+  type A3Paint,
+} from "@/lib/a3-status";
+import { DARK_RASTER_STYLE } from "@/lib/map-styles";
+import { useLiveSnapshot } from "@/hooks/use-live-snapshot";
+import { useNow } from "@/hooks/use-now";
+import { formatTime } from "@/lib/time";
+import { cn } from "@/lib/utils";
+import type { Catalog, LiveSnapshot } from "@/lib/types";
+
+type PickKind =
+  | { kind: "bridge"; id: A3BridgeId }
+  | { kind: "lock"; id: string }
+  | null;
+
+const LOCK_LABEL: Record<string, string> = {
+  westsluis: "WESTSLUIS",
+  "nieuwe-sluis": "NIEUWE SLUIS",
+  oostsluis: "OOSTSLUIS",
+};
+
+function isDebugMode() {
+  if (typeof window === "undefined") return false;
+  return new URLSearchParams(window.location.search).get("debug") === "1";
+}
+
+/** Extra N/S so Buitenhaven approaches sit in the iPhone portrait frame. */
+function a4FitBounds(): [[number, number], [number, number]] {
+  const [[west, south], [east, north]] = a3FitBounds();
+  const extra = 0.00135;
+  return [
+    [west, south - extra],
+    [east, north + extra],
+  ];
+}
+
+function a4Center(): LngLat {
+  const [[west, south], [east, north]] = a4FitBounds();
+  return [(west + east) / 2, (south + north) / 2];
+}
+
+function project(
+  lng: number,
+  lat: number,
+  width: number,
+  height: number,
+): { x: number; y: number } {
+  const [[west, south], [east, north]] = a4FitBounds();
+  const padX = width * 0.08;
+  const padY = height * 0.06;
+  return {
+    x: padX + ((lng - west) / (east - west)) * (width - 2 * padX),
+    y: padY + ((north - lat) / (north - south)) * (height - 2 * padY),
+  };
+}
+
+function ringPoints(ring: LngLat[], width: number, height: number): string {
+  return ring
+    .map(([lng, lat]) => {
+      const p = project(lng, lat, width, height);
+      return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+    })
+    .join(" ");
+}
+
+function deckBarrier(ring: LngLat[]): LngLat[] {
+  const lngs = ring.map((p) => p[0]);
+  const lats = ring.map((p) => p[1]);
+  const minLng = Math.min(...lngs);
+  const maxLng = Math.max(...lngs);
+  const minLat = Math.min(...lats);
+  const maxLat = Math.max(...lats);
+  const cx = (minLng + maxLng) / 2;
+  const cy = (minLat + maxLat) / 2;
+  if (maxLng - minLng >= maxLat - minLat) {
+    return [
+      [minLng, cy],
+      [maxLng, cy],
+    ];
+  }
+  return [
+    [cx, minLat],
+    [cx, maxLat],
+  ];
+}
+
+function overlayLineGeoJSON(paints: Record<A3BridgeId, A3Paint>) {
+  return {
+    type: "FeatureCollection" as const,
+    features: A3_DECKS.features.flatMap((feature) => {
+      const id = String(feature.properties.id) as A3BridgeId;
+      const paint = paints[id] ?? "no-live-data";
+      if (paint === "open") return [];
+      return [
+        {
+          type: "Feature" as const,
+          properties: { id, paint },
+          geometry: {
+            type: "LineString" as const,
+            coordinates: deckBarrier(feature.geometry.coordinates[0]),
+          },
+        },
+      ];
+    }),
+  };
+}
+
+function makeLockNameLabel({
+  name,
+  offset,
+  selected,
+  onClick,
+}: {
+  name: string;
+  offset: "left" | "right" | "top" | "bottom";
+  selected: boolean;
+  onClick: () => void;
+}) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.setAttribute("aria-label", name);
+  const shift =
+    offset === "left"
+      ? "translate(-112%, -50%)"
+      : offset === "right"
+        ? "translate(12%, -50%)"
+        : offset === "top"
+          ? "translate(-50%, -130%)"
+          : "translate(-50%, 30%)";
+  button.style.cssText =
+    "position:relative;display:flex;align-items:center;justify-content:center;min-height:44px;padding:0;border:0;background:transparent;cursor:pointer;z-index:2;";
+  const ring = selected ? "#fde68a" : "rgba(248,250,252,0.18)";
+  button.innerHTML = `<span style="transform:${shift};display:inline-block;padding:4px 8px;border-radius:4px;background:#020617cc;color:#f8fafc;border:1px solid ${ring};font:700 11px/1.1 ui-sans-serif,system-ui,sans-serif;letter-spacing:0.16em;white-space:nowrap;text-shadow:0 1px 2px #000">${name}</span>`;
+  button.addEventListener("click", (event) => {
+    event.stopPropagation();
+    onClick();
+  });
+  return button;
+}
+
+function FallbackSvg({
+  paints,
+  route,
+  overlays,
+  pick,
+  onPickBridge,
+  onPickLock,
+}: {
+  paints: Record<A3BridgeId, A3Paint>;
+  route: LngLat[];
+  overlays: ReturnType<typeof overlayLineGeoJSON>;
+  pick: PickKind;
+  onPickBridge: (id: A3BridgeId) => void;
+  onPickLock: (id: string) => void;
+}) {
+  const width = 390;
+  const height = 844;
+  const decks = decksWithPaint(paints);
+  return (
+    <div
+      className="absolute inset-0 z-[1] bg-[#1b2a3d]"
+      data-testid="a4-span-fallback"
+      aria-label="Noordzeesluizen A4"
+    >
+      <svg viewBox={`0 0 ${width} ${height}`} className="h-full w-full" preserveAspectRatio="xMidYMid meet" role="img">
+        <rect width={width} height={height} fill="#1b2a3d" />
+        {A3_CHAMBERS.features.map((chamber) => (
+          <polygon
+            key={String(chamber.properties.id)}
+            points={ringPoints(chamber.geometry.coordinates[0], width, height)}
+            fill="#22d3ee"
+            fillOpacity="0.28"
+            stroke="#a5f3fc"
+            strokeWidth="2"
+            onClick={() => onPickLock(String(chamber.properties.lockId ?? chamber.properties.id))}
+            style={{ cursor: "pointer" }}
+          />
+        ))}
+        {decks.features.map((deck) => (
+          <polygon
+            key={String(deck.properties.id)}
+            points={ringPoints(deck.geometry.coordinates[0], width, height)}
+            fill={String(deck.properties.color)}
+            fillOpacity="0.9"
+            stroke="#020617"
+            strokeWidth="1.4"
+            onClick={() => onPickBridge(String(deck.properties.id) as A3BridgeId)}
+            style={{ cursor: "pointer" }}
+          />
+        ))}
+        {overlays.features.map((line) => {
+          const pts = line.geometry.coordinates
+            .map(([lng, lat]) => {
+              const p = project(lng, lat, width, height);
+              return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+            })
+            .join(" ");
+          const closed = line.properties.paint === "closed";
+          return (
+            <polyline
+              key={line.properties.id}
+              points={pts}
+              fill="none"
+              stroke={closed ? "#b91c1c" : "#64748b"}
+              strokeWidth={closed ? 6 : 3.5}
+              strokeLinecap="round"
+              strokeDasharray={closed ? undefined : "6 5"}
+            />
+          );
+        })}
+        {route.length > 1 ? (
+          <polyline
+            points={route
+              .map(([lng, lat]) => {
+                const p = project(lng, lat, width, height);
+                return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+              })
+              .join(" ")}
+            fill="none"
+            stroke="#4ade80"
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            opacity="0.92"
+          />
+        ) : null}
+        {lockLabelPoints().map((lock) => {
+          const p = project(lock.lng, lock.lat, width, height);
+          const selected = pick?.kind === "lock" && pick.id === lock.id;
+          const name = LOCK_LABEL[lock.id] ?? lock.full.toUpperCase();
+          const x = lock.offset === "left" ? p.x - 14 : lock.offset === "right" ? p.x + 14 : p.x;
+          const anchor = lock.offset === "left" ? "end" : lock.offset === "right" ? "start" : "middle";
+          return (
+            <text
+              key={lock.id}
+              x={x}
+              y={p.y + 4}
+              textAnchor={anchor}
+              fill={selected ? "#fde68a" : "#f8fafc"}
+              fontSize="11"
+              fontWeight="700"
+              letterSpacing="1.4"
+              fontFamily="ui-sans-serif, system-ui"
+              onClick={() => onPickLock(lock.id)}
+              style={{ cursor: "pointer" }}
+            >
+              {name}
+            </text>
+          );
+        })}
+      </svg>
+    </div>
+  );
+}
+
+function paintStatic(map: maplibregl.Map) {
+  if (map.getSource("a4-water")) return;
+  map.addSource("a4-water", { type: "geojson", data: A3_WATER });
+  map.addLayer({
+    id: "a4-water",
+    type: "fill",
+    source: "a4-water",
+    paint: { "fill-color": "#0e7490", "fill-opacity": 0.28 },
+  });
+  map.addSource("a4-roads", { type: "geojson", data: A3_ROADS });
+  map.addLayer({
+    id: "a4-roads",
+    type: "line",
+    source: "a4-roads",
+    paint: { "line-color": "#94a3b8", "line-width": 2.2, "line-opacity": 0.5 },
+    layout: { "line-cap": "round", "line-join": "round" },
+  });
+  map.addSource("a4-roundabouts", { type: "geojson", data: A3_ROUNDABOUTS });
+  map.addLayer({
+    id: "a4-roundabouts",
+    type: "line",
+    source: "a4-roundabouts",
+    paint: { "line-color": "#cbd5e1", "line-width": 2.6, "line-opacity": 0.65 },
+    layout: { "line-cap": "round", "line-join": "round" },
+  });
+  map.addSource("a4-chambers", { type: "geojson", data: A3_CHAMBERS });
+  map.addLayer({
+    id: "a4-chambers-fill",
+    type: "fill",
+    source: "a4-chambers",
+    paint: { "fill-color": "#22d3ee", "fill-opacity": 0.28 },
+  });
+  map.addLayer({
+    id: "a4-chambers-line",
+    type: "line",
+    source: "a4-chambers",
+    paint: { "line-color": "#a5f3fc", "line-width": 2 },
+  });
+  map.addSource("a4-decks", {
+    type: "geojson",
+    data: decksWithPaint({
+      "oostsluis-buitenhoofd": "no-live-data",
+      "oostsluis-binnenhoofd": "no-live-data",
+      "westsluis-noord": "no-live-data",
+      "westsluis-zuid": "no-live-data",
+      "nieuwe-sluis-buitenhoofd": "no-live-data",
+      "nieuwe-sluis-binnenhoofd": "no-live-data",
+    }),
+  });
+  map.addLayer({
+    id: "a4-decks-fill",
+    type: "fill",
+    source: "a4-decks",
+    paint: { "fill-color": ["get", "color"], "fill-opacity": 0.92 },
+  });
+  map.addLayer({
+    id: "a4-decks-line",
+    type: "line",
+    source: "a4-decks",
+    paint: { "line-color": "#020617", "line-width": 1.3 },
+  });
+  map.addSource("a4-overlay", { type: "geojson", data: overlayLineGeoJSON({
+    "oostsluis-buitenhoofd": "no-live-data",
+    "oostsluis-binnenhoofd": "no-live-data",
+    "westsluis-noord": "no-live-data",
+    "westsluis-zuid": "no-live-data",
+    "nieuwe-sluis-buitenhoofd": "no-live-data",
+    "nieuwe-sluis-binnenhoofd": "no-live-data",
+  }) });
+  map.addLayer({
+    id: "a4-overlay-unknown",
+    type: "line",
+    source: "a4-overlay",
+    filter: ["==", ["get", "paint"], "no-live-data"],
+    paint: {
+      "line-color": "#94a3b8",
+      "line-width": 3.2,
+      "line-dasharray": [1.4, 1.4],
+      "line-opacity": 0.85,
+    },
+    layout: { "line-cap": "round", "line-join": "round" },
+  });
+  map.addLayer({
+    id: "a4-overlay-closed",
+    type: "line",
+    source: "a4-overlay",
+    filter: ["==", ["get", "paint"], "closed"],
+    paint: { "line-color": "#b91c1c", "line-width": 6.5, "line-opacity": 0.95 },
+    layout: { "line-cap": "round", "line-join": "round" },
+  });
+  map.addSource("a4-route", { type: "geojson", data: routeLineGeoJSON([]) });
+  map.addLayer({
+    id: "a4-route-halo",
+    type: "line",
+    source: "a4-route",
+    paint: { "line-color": "#022c22", "line-width": 9, "line-opacity": 0.5 },
+    layout: { "line-cap": "round", "line-join": "round" },
+  });
+  map.addLayer({
+    id: "a4-route",
+    type: "line",
+    source: "a4-route",
+    paint: { "line-color": "#4ade80", "line-width": 5.2, "line-opacity": 0.95 },
+    layout: { "line-cap": "round", "line-join": "round" },
+  });
+}
+
+function watchA4Size(map: maplibregl.Map, paddingOf: () => maplibregl.PaddingOptions) {
+  let touched = false;
+  const mark = () => {
+    touched = true;
+  };
+  const canvas = map.getCanvas();
+  canvas.addEventListener("pointerdown", mark, { passive: true });
+  canvas.addEventListener("wheel", mark, { passive: true });
+  canvas.addEventListener("touchstart", mark, { passive: true });
+
+  const sync = () => {
+    const box = map.getContainer().getBoundingClientRect();
+    if (box.width < 80 || box.height < 80) return;
+    map.resize();
+    if (touched) return;
+    const phone = box.width < 640;
+    const padding = paddingOf();
+    const top = Math.max(48, padding.top ?? 0);
+    const bottom = Math.max(64, padding.bottom ?? 0);
+    const left = Math.max(10, padding.left ?? 0);
+    const right = Math.max(10, padding.right ?? 0);
+    if (top + bottom > 0.55 * box.height) {
+      map.jumpTo({
+        center: a4Center(),
+        zoom: phone ? 12.95 : 13.55,
+        bearing: A3_BEARING,
+        pitch: 0,
+      });
+      return;
+    }
+    map.fitBounds(a4FitBounds(), {
+      padding: { top, bottom, left, right },
+      bearing: A3_BEARING,
+      maxZoom: phone ? 13.7 : 14.35,
+      duration: 0,
+    });
+  };
+
+  const observer = new ResizeObserver(() => sync());
+  observer.observe(map.getContainer());
+  const frame = window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(sync);
+  });
+  map.once("idle", sync);
+
+  return {
+    refit: sync,
+    disconnect: () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+      canvas.removeEventListener("pointerdown", mark);
+      canvas.removeEventListener("wheel", mark);
+      canvas.removeEventListener("touchstart", mark);
+    },
+  };
+}
+
+export function DraftA4Map({
+  catalog,
+  initialNow,
+  initialLive,
+}: {
+  catalog: Catalog;
+  initialNow: string;
+  initialLive: LiveSnapshot | null;
+}) {
+  const now = useNow(initialNow);
+  const live = useLiveSnapshot(initialLive);
+  const route = useMemo(() => recommendA3Route(live), [live]);
+  const overlays = useMemo(() => overlayLineGeoJSON(route.paints), [route.paints]);
+  const liveAt = live?.fetchedAt ? formatTime(new Date(live.fetchedAt)) : formatTime(now);
+  const container = useRef<HTMLDivElement>(null);
+  const hudRef = useRef<HTMLElement>(null);
+  const cardRef = useRef<HTMLElement>(null);
+  const mapRef = useRef<maplibregl.Map | null>(null);
+  const markers = useRef<maplibregl.Marker[]>([]);
+  const pickRef = useRef<(next: PickKind) => void>(() => undefined);
+  const padRef = useRef({ top: 56, bottom: 78, left: 12, right: 12 });
+  const refitRef = useRef<() => void>(() => undefined);
+  const [ready, setReady] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const [webglOk, setWebglOk] = useState(true);
+  const [pick, setPick] = useState<PickKind>(null);
+  const [infoOpen, setInfoOpen] = useState(false);
+  const [debug, setDebug] = useState(false);
+  const [chromePad, setChromePad] = useState(padRef.current);
+  pickRef.current = setPick;
+  padRef.current = chromePad;
+
+  useEffect(() => {
+    setDebug(isDebugMode());
+  }, []);
+
+  useEffect(() => {
+    if (!container.current || mapRef.current) return;
+    const phone = window.matchMedia("(max-width: 640px)").matches;
+    let map: maplibregl.Map;
+    try {
+      map = new maplibregl.Map({
+        container: container.current,
+        style: DARK_RASTER_STYLE,
+        center: a4Center(),
+        zoom: phone ? 12.95 : 13.55,
+        minZoom: 12.2,
+        bearing: A3_BEARING,
+        pitch: 0,
+        attributionControl: false,
+        maxBounds: a3MaxBounds(),
+      });
+    } catch {
+      setWebglOk(false);
+      return;
+    }
+    const onWindowError = (event: ErrorEvent) => {
+      const message = String(event.message ?? event.error ?? "");
+      if (message.includes("WebGL") || message.includes("webgl") || message.includes("Failed to initialize")) {
+        event.preventDefault();
+        setWebglOk(false);
+      }
+    };
+    window.addEventListener("error", onWindowError);
+    map.getContainer().classList.add("draft-lock-map");
+    map.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-right");
+    if (!phone) {
+      map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+    }
+    const timeout = window.setTimeout(() => {
+      if (!map.loaded()) setFailed(true);
+    }, 10_000);
+    map.on("error", (event) => {
+      const message = String(event.error?.message ?? event.error ?? "");
+      if (message.includes("WebGL") || message.includes("webgl") || message.includes("Failed to initialize")) {
+        setWebglOk(false);
+        return;
+      }
+      if (message.includes("wood-pattern") || message.includes("image")) return;
+      if (message.includes("source") || message.includes("tile") || message.includes("ajax")) {
+        setFailed(true);
+      }
+    });
+    const watch = watchA4Size(map, () => padRef.current);
+    refitRef.current = watch.refit;
+    map.on("load", () => {
+      window.clearTimeout(timeout);
+      paintStatic(map);
+      watch.refit();
+      setReady(true);
+    });
+    map.on("click", (event) => {
+      if (map.getLayer("a4-decks-fill")) {
+        const hits = map.queryRenderedFeatures(event.point, { layers: ["a4-decks-fill"] });
+        const id = hits[0]?.properties?.id;
+        if (id) {
+          pickRef.current({ kind: "bridge", id: String(id) as A3BridgeId });
+          setInfoOpen(false);
+          return;
+        }
+      }
+      if (map.getLayer("a4-chambers-fill")) {
+        const hits = map.queryRenderedFeatures(event.point, { layers: ["a4-chambers-fill"] });
+        const lockId = hits[0]?.properties?.lockId ?? hits[0]?.properties?.id;
+        if (lockId) {
+          pickRef.current({ kind: "lock", id: String(lockId) });
+          setInfoOpen(false);
+          return;
+        }
+      }
+      const target = event.originalEvent.target as HTMLElement | null;
+      if (!target?.closest("button")) pickRef.current(null);
+    });
+    mapRef.current = map;
+    return () => {
+      markers.current.forEach((marker) => marker.remove());
+      markers.current = [];
+      window.clearTimeout(timeout);
+      window.removeEventListener("error", onWindowError);
+      watch.disconnect();
+      map.remove();
+      mapRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !ready) return;
+    const decks = map.getSource("a4-decks") as maplibregl.GeoJSONSource | undefined;
+    decks?.setData(decksWithPaint(route.paints));
+    const overlay = map.getSource("a4-overlay") as maplibregl.GeoJSONSource | undefined;
+    overlay?.setData(overlays);
+    const line = map.getSource("a4-route") as maplibregl.GeoJSONSource | undefined;
+    line?.setData(routeLineGeoJSON(route.advice.showRoute ? route.coordinates : []));
+  }, [route, overlays, ready]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !ready) return;
+    markers.current.forEach((marker) => marker.remove());
+    markers.current = lockLabelPoints().map((lock) => {
+      const selected = pick?.kind === "lock" && pick.id === lock.id;
+      const name = LOCK_LABEL[lock.id] ?? lock.full.toUpperCase();
+      const element = makeLockNameLabel({
+        name,
+        offset: lock.offset,
+        selected,
+        onClick: () => setPick({ kind: "lock", id: lock.id }),
+      });
+      return new maplibregl.Marker({ element, anchor: "center" })
+        .setLngLat([lock.lng, lock.lat])
+        .addTo(map);
+    });
+  }, [pick, ready]);
+
+  useEffect(() => {
+    const header = hudRef.current;
+    const card = cardRef.current;
+    const sync = () => {
+      const phone = window.innerWidth < 640;
+      const top = header?.getBoundingClientRect().height ?? (phone ? 52 : 56);
+      const bottom = card?.getBoundingClientRect().height ?? (phone ? 72 : 68);
+      const next = {
+        top: Math.ceil(top + 6),
+        bottom: Math.ceil(bottom + 8),
+        left: phone ? 8 : 40,
+        right: phone ? 8 : 40,
+      };
+      padRef.current = next;
+      setChromePad(next);
+      refitRef.current();
+    };
+    sync();
+    const observer = new ResizeObserver(sync);
+    if (header) observer.observe(header);
+    if (card) observer.observe(card);
+    window.addEventListener("resize", sync);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", sync);
+    };
+  }, [route.advice.title, pick, infoOpen]);
+
+  const banner =
+    route.advice.tone === "closed"
+      ? "border-red-400/70 bg-red-950/90 text-red-50"
+      : route.advice.tone === "open"
+        ? "border-emerald-400/70 bg-emerald-950/90 text-emerald-50"
+        : "border-white/20 bg-slate-950/90 text-slate-100";
+
+  const cardBody = cardCopy(pick, route.paints, route.advice, debug);
+
+  return (
+    <div className="fixed inset-0 z-50 bg-[#05080d] text-slate-100">
+      <div ref={container} className="absolute inset-0 h-full w-full" data-testid="a4-map" />
+      {(!webglOk || !ready) && (
+        <div
+          className="absolute z-[1]"
+          style={{
+            top: chromePad.top,
+            right: chromePad.right,
+            bottom: chromePad.bottom,
+            left: chromePad.left,
+          }}
+        >
+          <FallbackSvg
+            paints={route.paints}
+            route={route.advice.showRoute ? route.coordinates : []}
+            overlays={overlays}
+            pick={pick}
+            onPickBridge={(id) => setPick({ kind: "bridge", id })}
+            onPickLock={(id) => setPick({ kind: "lock", id })}
+          />
+        </div>
+      )}
+      <header
+        ref={hudRef}
+        className="pointer-events-none absolute inset-x-0 top-0 z-20"
+        data-testid="a4-top-hud"
+      >
+        <div className="pointer-events-auto mx-auto flex w-full max-w-xl items-center justify-between gap-2 px-2 pt-[max(0.4rem,env(safe-area-inset-top))] sm:px-4 sm:pt-3">
+          <div className="flex min-w-0 items-center">
+            <Link
+              href="/terneuzen"
+              className="inline-flex size-11 shrink-0 items-center justify-center rounded-md text-slate-300 hover:text-cyan-200"
+              aria-label="Terug naar IsoMap"
+            >
+              <ArrowLeft className="size-4" />
+            </Link>
+            <h1 className="truncate font-serif text-[15px] leading-none text-slate-50 sm:text-lg">
+              Terneuzen
+            </h1>
+          </div>
+          <div className="flex shrink-0 items-center gap-1">
+            {debug ? <ConceptChip letter="A4" /> : null}
+            <p
+              className="inline-flex items-center gap-1.5 rounded-full border border-cyan-400/35 bg-slate-950/80 px-2 py-1 font-mono text-[10px] tracking-wide text-cyan-100"
+              data-testid="a4-live"
+            >
+              <span
+                className="size-1.5 rounded-full bg-cyan-300 shadow-[0_0_6px_#67e8f9] motion-safe:animate-pulse"
+                aria-hidden
+              />
+              LIVE{" "}
+              <span data-testid="a4-live-clock">{liveAt}</span>
+            </p>
+            <button
+              type="button"
+              onClick={() => setInfoOpen((open) => !open)}
+              className="inline-flex size-11 items-center justify-center rounded-full text-slate-200 hover:bg-white/10"
+              aria-expanded={infoOpen}
+              aria-controls="a4-info-panel"
+              aria-label="Legenda en bron"
+              data-testid="a4-info"
+            >
+              <Info className="size-4" />
+            </button>
+          </div>
+        </div>
+        {infoOpen ? (
+          <div
+            id="a4-info-panel"
+            className="pointer-events-auto mx-auto mt-1 w-full max-w-xl px-2 sm:px-4"
+            data-testid="a4-info-panel"
+          >
+            <div className="rounded-lg border border-white/15 bg-slate-950/92 px-3 py-2 text-[12px] leading-4 text-slate-200 backdrop-blur-md">
+              <ul className="flex flex-wrap gap-x-3 gap-y-1 font-medium text-slate-100">
+                {(["open", "closed", "no-live-data"] as A3Paint[]).map((item) => (
+                  <li key={item} className="inline-flex items-center gap-1.5">
+                    <span
+                      className="size-2.5 rounded-full ring-1 ring-black/20"
+                      style={{ background: A3_PAINT_COLOR[item] }}
+                      aria-hidden
+                    />
+                    {A3_PAINT_LABEL[item]}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-1.5 text-slate-300" title={catalog.status.disclaimer}>
+                Dekkleur = oversteek. Groen pad alleen bij live open Oostsluis. Geen omweg via Westsluis of Nieuwe Sluis. Op afroep. {catalog.status.disclaimer}
+              </p>
+            </div>
+          </div>
+        ) : null}
+      </header>
+      <footer
+        ref={cardRef}
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 px-2 pb-[max(0.55rem,env(safe-area-inset-bottom))] sm:px-4 sm:pb-3"
+        data-testid="a4-bottom-card"
+      >
+        <div className={cn("pointer-events-auto mx-auto w-full max-w-xl rounded-lg border px-2.5 py-1.5 backdrop-blur-md transition-colors duration-300", banner)}>
+          <div className="flex items-start justify-between gap-2">
+            <div className="min-w-0">
+              <p className="text-[13px] font-semibold leading-tight sm:text-sm">{cardBody.title}</p>
+              <p className="mt-0.5 text-[11px] leading-4 text-current/90">{cardBody.detail}</p>
+              {cardBody.isrs ? (
+                <p className="mt-0.5 font-mono text-[10px] text-current/70">{cardBody.isrs}</p>
+              ) : null}
+            </div>
+            {pick ? (
+              <button
+                type="button"
+                onClick={() => setPick(null)}
+                className="inline-flex size-11 shrink-0 items-center justify-center rounded-md text-current hover:bg-white/10"
+                aria-label="Sluit selectie"
+              >
+                <X className="size-4" />
+              </button>
+            ) : null}
+          </div>
+        </div>
+      </footer>
+      {webglOk && !ready && !failed ? (
+        <p className="pointer-events-none absolute left-1/2 top-[48%] -translate-x-1/2 font-mono text-xs text-cyan-200/80">
+          Esri-basemap laden…
+        </p>
+      ) : null}
+      {failed && webglOk ? (
+        <p className="absolute left-1/2 top-[48%] max-w-xs -translate-x-1/2 text-center text-sm text-amber-200">
+          Open-tegels niet bereikbaar. Officiële geometrie blijft zichtbaar.
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+function cardCopy(
+  pick: PickKind,
+  paints: Record<A3BridgeId, A3Paint>,
+  advice: A3Advice,
+  debug: boolean,
+): { title: string; detail: string; isrs?: string } {
+  if (pick?.kind === "bridge") {
+    const copy = A3_BRIDGE_COPY[pick.id];
+    const paint = paints[pick.id];
+    const ndw = A3_NDW_ISRS[pick.id as keyof typeof A3_NDW_ISRS];
+    return {
+      title: `${copy.full} · ${A3_PAINT_LABEL[paint]}`,
+      detail: ndw
+        ? "Live NDW op dit dek. Status volgt de BGT-oversteek."
+        : "Geen live NDW. Geen groene omweg.",
+      isrs: debug && ndw ? ndw : undefined,
+    };
+  }
+  if (pick?.kind === "lock") {
+    const locks: Record<string, { title: string; detail: string }> = {
+      westsluis: {
+        title: "WESTSLUIS",
+        detail: "Beide dekken zonder live NDW.",
+      },
+      "nieuwe-sluis": {
+        title: "NIEUWE SLUIS",
+        detail: "Beide dekken zonder live NDW.",
+      },
+      oostsluis: {
+        title: "OOSTSLUIS",
+        detail: "Live NDW op binnen- en buitenhoofd.",
+      },
+    };
+    const lock = locks[pick.id] ?? { title: pick.id, detail: "Sluis." };
+    return lock;
+  }
+  if (advice.tone === "open") {
+    return {
+      title: advice.title,
+      detail: advice.caution
+        ? "Via Oostsluis. NDW verwacht een opening."
+        : "Via Oostsluis, live bevestigd.",
+    };
+  }
+  if (advice.tone === "closed") {
+    return {
+      title: advice.title,
+      detail: "Rood op het dichte dek. Geen omweg via Westsluis of Nieuwe Sluis.",
+    };
+  }
+  return {
+    title: advice.title,
+    detail: "Grijs dek: geen live data. We raden geen route aan.",
+  };
+}

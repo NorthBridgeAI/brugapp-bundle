@@ -1,0 +1,5907 @@
+{
+  "type": "FeatureCollection",
+  "name": "roads-nwb-lock-island",
+  "groundTruth": true,
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "source": {
+    "name": "Nationaal Wegenbestand — Wegen (PDOK OGC API Features)",
+    "url": "https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1/collections/wegvakken",
+    "license": "CC0 1.0",
+    "retrievedAt": "2026-09-14T08:58:37Z",
+    "note": "Wegvakken bbox Terneuzen Noordzeesluizen. FOW=4 + BST=NRB = roundabout carriageway (NDW NWB docs).",
+    "serviceTimestamp": "2026-09-14T08:58:37Z"
+  },
+  "generatedAt": "2026-09-14T08:58:37Z",
+  "featureCount": 119,
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601088761,
+        "objectId": 261247,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8207684328275873,
+              51.336038819357
+            ],
+            [
+              3.8209316855792097,
+              51.33601941156375
+            ],
+            [
+              3.820987634336308,
+              51.33601485976164
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261198,
+        "objectId": 261452,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.820729947578019,
+              51.329560163505036
+            ],
+            [
+              3.820815193888542,
+              51.32957911693134
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601260993,
+        "objectId": 261454,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8190155031417317,
+              51.33311083949055
+            ],
+            [
+              3.8191053264910035,
+              51.332991714778544
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261003,
+        "objectId": 263080,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819046843728919,
+              51.3326098444338
+            ],
+            [
+              3.8191508716799514,
+              51.33271861546789
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261205,
+        "objectId": 263196,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8188576865173984,
+              51.32743002018079
+            ],
+            [
+              3.8187279232397744,
+              51.32759681194109
+            ],
+            [
+              3.8184622447599006,
+              51.3279291056993
+            ],
+            [
+              3.8182445578826876,
+              51.32820927322493
+            ],
+            [
+              3.8180621034133635,
+              51.32844118842652
+            ],
+            [
+              3.817864237959127,
+              51.32869141541399
+            ],
+            [
+              3.817761034493071,
+              51.32881918536238
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601260992,
+        "objectId": 264793,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8188264278407527,
+              51.333429626837365
+            ],
+            [
+              3.818820877058768,
+              51.33336893684589
+            ],
+            [
+              3.8190155031417317,
+              51.33311083949055
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282551,
+        "objectId": 266410,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8192417542841235,
+              51.33303223625733
+            ],
+            [
+              3.8192024909987667,
+              51.33302561681069
+            ],
+            [
+              3.8191653875363216,
+              51.33301531799031
+            ],
+            [
+              3.8191272475125806,
+              51.33300176874479
+            ],
+            [
+              3.8191053264910035,
+              51.332991714778544
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282559,
+        "objectId": 266411,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819379274259764,
+              51.332714659257974
+            ],
+            [
+              3.81940999315539,
+              51.33272490263122
+            ],
+            [
+              3.819449260672618,
+              51.33274323174654
+            ],
+            [
+              3.8194785394299022,
+              51.332759898061504
+            ],
+            [
+              3.8195035622499196,
+              51.33277918255055
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261092,
+        "objectId": 266412,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8168292759249707,
+              51.329890577507165
+            ],
+            [
+              3.8168679380388895,
+              51.32987304749353
+            ],
+            [
+              3.8169164437606686,
+              51.329835403451405
+            ],
+            [
+              3.8169885750899555,
+              51.32973595411885
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261166,
+        "objectId": 266414,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8188957881812264,
+              51.32693802806896
+            ],
+            [
+              3.8189266841362635,
+              51.32694797192427
+            ],
+            [
+              3.8191099063632286,
+              51.32699253298126
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601024245,
+        "objectId": 269414,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.814420673526796,
+              51.3291870449009
+            ],
+            [
+              3.81436950151442,
+              51.32924149768275
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601088780,
+        "objectId": 269516,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8215323002826738,
+              51.33324255901591
+            ],
+            [
+              3.821437165725426,
+              51.33320878423224
+            ],
+            [
+              3.8212982655432697,
+              51.33315792040028
+            ],
+            [
+              3.8212411897695144,
+              51.33314411725234
+            ],
+            [
+              3.8210549658891364,
+              51.33309582988385
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261196,
+        "objectId": 269836,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8196600832554624,
+              51.33229792100821
+            ],
+            [
+              3.8196332957807644,
+              51.33205967011306
+            ],
+            [
+              3.8196258327818926,
+              51.331879766520856
+            ],
+            [
+              3.8196662233882246,
+              51.331631013122006
+            ],
+            [
+              3.819684266687762,
+              51.33154845663375
+            ],
+            [
+              3.81970518967334,
+              51.33146980466969
+            ],
+            [
+              3.819738764283563,
+              51.331377927650244
+            ],
+            [
+              3.8198117263667064,
+              51.331196229653
+            ],
+            [
+              3.819853922986382,
+              51.3311207408276
+            ],
+            [
+              3.8198833614432326,
+              51.33105739680341
+            ],
+            [
+              3.819944124275294,
+              51.33096777356034
+            ],
+            [
+              3.8200985324442005,
+              51.33071677850776
+            ],
+            [
+              3.8203364063670295,
+              51.33033753791689
+            ],
+            [
+              3.8205080372542723,
+              51.330069602875774
+            ],
+            [
+              3.8207330963636625,
+              51.329708169440686
+            ],
+            [
+              3.820815193888542,
+              51.32957911693134
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261197,
+        "objectId": 269837,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.820815193888542,
+              51.32957911693134
+            ],
+            [
+              3.8208855270151294,
+              51.32946856430877
+            ],
+            [
+              3.8210498867574825,
+              51.32919486692559
+            ],
+            [
+              3.821372857317638,
+              51.32867688191856
+            ],
+            [
+              3.821730935742528,
+              51.3281098322732
+            ],
+            [
+              3.8217793978026284,
+              51.3280230095248
+            ],
+            [
+              3.821805996793621,
+              51.327958637963356
+            ],
+            [
+              3.821821739947825,
+              51.32789699732155
+            ],
+            [
+              3.821817768485268,
+              51.32783697960615
+            ],
+            [
+              3.8218086841120664,
+              51.327792176424566
+            ],
+            [
+              3.821774108566701,
+              51.32773750101602
+            ],
+            [
+              3.8217270184283842,
+              51.32769209702695
+            ],
+            [
+              3.8216587315675516,
+              51.32764550904614
+            ],
+            [
+              3.821591662467288,
+              51.327609455876974
+            ],
+            [
+              3.8215046740131684,
+              51.32757682082096
+            ],
+            [
+              3.821286366099251,
+              51.32751967486266
+            ],
+            [
+              3.8210048011244684,
+              51.32744927133734
+            ],
+            [
+              3.82036026276687,
+              51.32729316247131
+            ],
+            [
+              3.819656938244241,
+              51.32711908749817
+            ],
+            [
+              3.819494824734181,
+              51.32708196405433
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601364422,
+        "objectId": 271521,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8196600832554624,
+              51.33229792100821
+            ],
+            [
+              3.819689655723262,
+              51.332320244236115
+            ],
+            [
+              3.8196871253459665,
+              51.33244004896779
+            ],
+            [
+              3.819683917085446,
+              51.33248756371526
+            ],
+            [
+              3.819664069208484,
+              51.33253485450043
+            ],
+            [
+              3.819626731001654,
+              51.33260672269745
+            ],
+            [
+              3.819606986587462,
+              51.33263911098436
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601708538,
+        "objectId": 273460,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819171011881332,
+              51.327104007567605
+            ],
+            [
+              3.819055092742119,
+              51.327245477405995
+            ],
+            [
+              3.8188997488748897,
+              51.32742354825637
+            ],
+            [
+              3.8188576865173984,
+              51.32743002018079
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 600994130,
+        "objectId": 274485,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "B",
+        "bronjaar": 2022,
+        "geoBron": "Levering Wegbeheerder",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.813854209607272,
+              51.326872146354475
+            ],
+            [
+              3.81386684229384,
+              51.32685294141726
+            ],
+            [
+              3.813868067215912,
+              51.32685103856553
+            ],
+            [
+              3.8139404828765495,
+              51.32675930939693
+            ],
+            [
+              3.8139955435990176,
+              51.326696533213195
+            ],
+            [
+              3.8140780591529593,
+              51.32660151155718
+            ],
+            [
+              3.8145829162373994,
+              51.32602898247524
+            ],
+            [
+              3.8146410048451966,
+              51.32594066267022
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 600994164,
+        "objectId": 274486,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2022,
+        "geoBron": "Levering Wegbeheerder",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8159662866435364,
+              51.326000477553656
+            ],
+            [
+              3.8157831684224703,
+              51.32599650258774
+            ],
+            [
+              3.81563205771061,
+              51.32604856707476
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601260995,
+        "objectId": 274878,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8192417542841235,
+              51.33303223625733
+            ],
+            [
+              3.819123542640926,
+              51.33314555418965
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261120,
+        "objectId": 274992,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8188576865173984,
+              51.32743002018079
+            ],
+            [
+              3.8188438144752728,
+              51.32740598336095
+            ],
+            [
+              3.818947746876322,
+              51.32725419072289
+            ],
+            [
+              3.8191099063632286,
+              51.32699253298126
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601708503,
+        "objectId": 275195,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "7",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8189106811198736,
+              51.33575765147016
+            ],
+            [
+              3.818931145853801,
+              51.33573878878961
+            ],
+            [
+              3.818969005565834,
+              51.33563510265821
+            ],
+            [
+              3.819076722264998,
+              51.33514988256586
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282552,
+        "objectId": 276716,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8191053264910035,
+              51.332991714778544
+            ],
+            [
+              3.8190752561984493,
+              51.332973648732974
+            ],
+            [
+              3.8190502823068573,
+              51.33295281490696
+            ],
+            [
+              3.819030696110408,
+              51.33292971617982
+            ],
+            [
+              3.8190173336133597,
+              51.332905083023896
+            ],
+            [
+              3.8190103228360757,
+              51.33287936667303
+            ],
+            [
+              3.8190097825474316,
+              51.33285328794036
+            ],
+            [
+              3.8190159780446495,
+              51.332827479709394
+            ],
+            [
+              3.8190286008418552,
+              51.332802567136454
+            ],
+            [
+              3.819047294872937,
+              51.33277926553672
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261006,
+        "objectId": 276717,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819047294872937,
+              51.33277926553672
+            ],
+            [
+              3.8189781894491155,
+              51.332690769982065
+            ],
+            [
+              3.818947166067863,
+              51.332643105356205
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261183,
+        "objectId": 278295,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819729328498706,
+              51.333009225513
+            ],
+            [
+              3.819482994282762,
+              51.332980959460585
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261087,
+        "objectId": 278409,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.817081805286337,
+              51.329764039565674
+            ],
+            [
+              3.8169957106599584,
+              51.329871443975755
+            ],
+            [
+              3.81695036651175,
+              51.3299173117277
+            ],
+            [
+              3.8169148183080837,
+              51.32994628957553
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601088760,
+        "objectId": 279704,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8202750715247418,
+              51.3360814651024
+            ],
+            [
+              3.820382703783481,
+              51.33606156328428
+            ],
+            [
+              3.82047725496209,
+              51.336058250241265
+            ],
+            [
+              3.8206386377124972,
+              51.33604801462907
+            ],
+            [
+              3.8207684328275873,
+              51.336038819357
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601088771,
+        "objectId": 279706,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8207743337416895,
+              51.33610265149435
+            ],
+            [
+              3.820555303696692,
+              51.33610928537712
+            ],
+            [
+              3.8204615652024634,
+              51.33610982246906
+            ],
+            [
+              3.820379106983362,
+              51.336103678719944
+            ],
+            [
+              3.8202750715247418,
+              51.3360814651024
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261088,
+        "objectId": 279902,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8169148183080837,
+              51.32994628957553
+            ],
+            [
+              3.816834135183493,
+              51.33001198865392
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261174,
+        "objectId": 281535,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8195463482249017,
+              51.33289819211248
+            ],
+            [
+              3.8197504722684394,
+              51.33293896702467
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282557,
+        "objectId": 281657,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8195463482249017,
+              51.33289819211248
+            ],
+            [
+              3.819537743819172,
+              51.33292080970132
+            ],
+            [
+              3.819524231188923,
+              51.33294238399126
+            ],
+            [
+              3.819505741080577,
+              51.33296263265644
+            ],
+            [
+              3.819482994282762,
+              51.332980959460585
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261165,
+        "objectId": 281694,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8166934367337952,
+              51.32624427534043
+            ],
+            [
+              3.8168810220176335,
+              51.32630520785112
+            ],
+            [
+              3.8172577252977233,
+              51.32642527120777
+            ],
+            [
+              3.817509863352414,
+              51.32650400771422
+            ],
+            [
+              3.818331267420265,
+              51.32675745158124
+            ],
+            [
+              3.8186447976733744,
+              51.32685786984267
+            ],
+            [
+              3.818707984440749,
+              51.3268773305556
+            ],
+            [
+              3.818831958474147,
+              51.32691927621527
+            ],
+            [
+              3.8188957881812264,
+              51.32693802806896
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601024248,
+        "objectId": 282957,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.813920765921589,
+              51.32902969627883
+            ],
+            [
+              3.8142337710458265,
+              51.329127454573644
+            ],
+            [
+              3.814420673526796,
+              51.3291870449009
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261190,
+        "objectId": 283146,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.818784486187438,
+              51.33091053025724
+            ],
+            [
+              3.8197972772688753,
+              51.329352790424004
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261206,
+        "objectId": 283262,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.817761034493071,
+              51.32881918536238
+            ],
+            [
+              3.8176731565888775,
+              51.32892788866628
+            ],
+            [
+              3.8171819145707744,
+              51.32955271705644
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601708539,
+        "objectId": 283439,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8192346795246537,
+              51.327022412484936
+            ],
+            [
+              3.819184638899196,
+              51.32708737675885
+            ],
+            [
+              3.819171011881332,
+              51.327104007567605
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 600994121,
+        "objectId": 284455,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "B",
+        "bronjaar": 2022,
+        "geoBron": "Levering Wegbeheerder",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8164002684945433,
+              51.32614959422617
+            ],
+            [
+              3.8165677060409635,
+              51.3262071250998
+            ],
+            [
+              3.8166934367337952,
+              51.32624427534043
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601024249,
+        "objectId": 284625,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.814420673526796,
+              51.3291870449009
+            ],
+            [
+              3.814611344882939,
+              51.32924771788854
+            ],
+            [
+              3.8154408061937373,
+              51.329505695792314
+            ],
+            [
+              3.8157587922109713,
+              51.32960627173637
+            ],
+            [
+              3.8162689273103543,
+              51.3297653577504
+            ],
+            [
+              3.8163986738327407,
+              51.329802349319344
+            ],
+            [
+              3.8165263229077055,
+              51.32984191960061
+            ],
+            [
+              3.8165810534020563,
+              51.32987023417302
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261033,
+        "objectId": 284848,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819218410642597,
+              51.33462905124347
+            ],
+            [
+              3.819076722264998,
+              51.33514988256586
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282553,
+        "objectId": 284941,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819047294872937,
+              51.33277926553672
+            ],
+            [
+              3.8190679165434718,
+              51.332760932678006
+            ],
+            [
+              3.819092448509715,
+              51.332744451396685
+            ],
+            [
+              3.819120202626467,
+              51.332730261033696
+            ],
+            [
+              3.8191508716799514,
+              51.33271861546789
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282558,
+        "objectId": 284942,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819482994282762,
+              51.332980959460585
+            ],
+            [
+              3.819450644848585,
+              51.33299991936133
+            ],
+            [
+              3.819413666943674,
+              51.33301524425797
+            ],
+            [
+              3.8193731012081904,
+              51.33302638537139
+            ],
+            [
+              3.8193301075532946,
+              51.33303299870661
+            ],
+            [
+              3.819285836645253,
+              51.33303500985052
+            ],
+            [
+              3.8192417542841235,
+              51.33303223625733
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261156,
+        "objectId": 286560,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819494824734181,
+              51.32708196405433
+            ],
+            [
+              3.8192346795246537,
+              51.327022412484936
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261191,
+        "objectId": 286561,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8197972772688753,
+              51.329352790424004
+            ],
+            [
+              3.8203663839672264,
+              51.328422868867634
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261002,
+        "objectId": 286666,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.818795952379161,
+              51.33218175466542
+            ],
+            [
+              3.8188416753701455,
+              51.33219411336076
+            ],
+            [
+              3.81891599864379,
+              51.33235765629203
+            ],
+            [
+              3.8189555571971474,
+              51.332476229760275
+            ],
+            [
+              3.818999467802435,
+              51.332543258308114
+            ],
+            [
+              3.819046843728919,
+              51.3326098444338
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261037,
+        "objectId": 286680,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8202750715247418,
+              51.3360814651024
+            ],
+            [
+              3.8202056907393107,
+              51.33607976929003
+            ],
+            [
+              3.8200687699987537,
+              51.33606722875654
+            ],
+            [
+              3.8198643121044253,
+              51.33604451935966
+            ],
+            [
+              3.8194764173347338,
+              51.336009721118735
+            ],
+            [
+              3.8193365876250716,
+              51.335989948439334
+            ],
+            [
+              3.819091618393891,
+              51.335939092537785
+            ],
+            [
+              3.8190092281132917,
+              51.33590588835733
+            ],
+            [
+              3.8188969959301606,
+              51.33585565049328
+            ],
+            [
+              3.818839980865291,
+              51.335822813051635
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261038,
+        "objectId": 287412,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.818839980865291,
+              51.335822813051635
+            ],
+            [
+              3.818803826515143,
+              51.33580198326215
+            ],
+            [
+              3.8187280723819,
+              51.33574270688557
+            ],
+            [
+              3.8186691027213406,
+              51.335692017351064
+            ],
+            [
+              3.8185783397705024,
+              51.33556825911392
+            ],
+            [
+              3.8185389603704247,
+              51.33549877422241
+            ],
+            [
+              3.8185188439685627,
+              51.335420019202026
+            ],
+            [
+              3.8185144673468856,
+              51.335325923203676
+            ],
+            [
+              3.818517334121205,
+              51.33518805279574
+            ],
+            [
+              3.8185328510552248,
+              51.335070490724405
+            ],
+            [
+              3.8185418725505955,
+              51.334970731579745
+            ],
+            [
+              3.818613077568576,
+              51.334388948573185
+            ],
+            [
+              3.818677194502866,
+              51.33395927343962
+            ],
+            [
+              3.8187003436352347,
+              51.3337823891924
+            ],
+            [
+              3.818717153873386,
+              51.333681476308506
+            ],
+            [
+              3.8187584637633565,
+              51.333527401927
+            ],
+            [
+              3.8188264278407527,
+              51.333429626837365
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261208,
+        "objectId": 287606,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.817761034493071,
+              51.32881918536238
+            ],
+            [
+              3.817670482928707,
+              51.32879023932755
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261179,
+        "objectId": 288026,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8202673965817713,
+              51.33302419405884
+            ],
+            [
+              3.820333576672794,
+              51.33302798377609
+            ],
+            [
+              3.8205962698808706,
+              51.33305120613897
+            ],
+            [
+              3.820662284790795,
+              51.33305542047918
+            ],
+            [
+              3.8209904675093775,
+              51.33308563613282
+            ],
+            [
+              3.8210549658891364,
+              51.33309582988385
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601088785,
+        "objectId": 288967,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8210549658891364,
+              51.33309582988385
+            ],
+            [
+              3.821152876904625,
+              51.333087011009795
+            ],
+            [
+              3.821261639601698,
+              51.333100160662774
+            ],
+            [
+              3.821492811056245,
+              51.333147050765824
+            ],
+            [
+              3.8215247510669785,
+              51.33315727942381
+            ],
+            [
+              3.8215886942843547,
+              51.33317949603651
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261039,
+        "objectId": 289252,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "7",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.818738883278461,
+              51.33588912323191
+            ],
+            [
+              3.818839980865291,
+              51.335822813051635
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 600707563,
+        "objectId": 289391,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2022,
+        "geoBron": "Levering Wegbeheerder",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.815771593560188,
+              51.32591939236716
+            ],
+            [
+              3.8159662866435364,
+              51.326000477553656
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261091,
+        "objectId": 291383,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8167229051160567,
+              51.32993862765206
+            ],
+            [
+              3.8168292759249707,
+              51.329890577507165
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 600994166,
+        "objectId": 292134,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "HR",
+        "frc": "3",
+        "rijrichtng": "H",
+        "bronjaar": 2022,
+        "geoBron": "Levering Wegbeheerder",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.81563205771061,
+              51.32604856707476
+            ],
+            [
+              3.815535408231752,
+              51.32616136768446
+            ],
+            [
+              3.8155015043913516,
+              51.32620008834665
+            ],
+            [
+              3.81546760049327,
+              51.32623880899865
+            ],
+            [
+              3.815433696568401,
+              51.32627752874192
+            ],
+            [
+              3.8153997925549543,
+              51.32631624937356
+            ],
+            [
+              3.815365889918045,
+              51.32635497001442
+            ],
+            [
+              3.81533328694932,
+              51.32639223919568
+            ],
+            [
+              3.8152992562671906,
+              51.32643104978938
+            ],
+            [
+              3.8152664604004562,
+              51.326470211476185
+            ],
+            [
+              3.815233660205374,
+              51.32650937219676
+            ],
+            [
+              3.815199171814911,
+              51.326548051620726
+            ],
+            [
+              3.8151643096165877,
+              51.32658662529888
+            ],
+            [
+              3.815129201519005,
+              51.32662512912024
+            ],
+            [
+              3.8150939938907857,
+              51.32666360461728
+            ],
+            [
+              3.815058894218137,
+              51.326702110330224
+            ],
+            [
+              3.81501982921194,
+              51.32674517984818
+            ],
+            [
+              3.8149907587915197,
+              51.326776891260636
+            ],
+            [
+              3.8149546982679206,
+              51.32681487512769
+            ],
+            [
+              3.814918622092727,
+              51.32685285337862
+            ],
+            [
+              3.8148820491979527,
+              51.32689062802759
+            ],
+            [
+              3.814844460345844,
+              51.3269279843904
+            ],
+            [
+              3.8148057295230964,
+              51.326964873116665
+            ],
+            [
+              3.8147656360727926,
+              51.3270012013241
+            ],
+            [
+              3.8147269380096223,
+              51.32703659180663
+            ],
+            [
+              3.814686808829227,
+              51.3270732458486
+            ],
+            [
+              3.8145983930634206,
+              51.327142495251486
+            ],
+            [
+              3.8142888461827673,
+              51.32738104918689
+            ],
+            [
+              3.814113412523473,
+              51.32751458477443
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261007,
+        "objectId": 292650,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.818947166067863,
+              51.332643105356205
+            ],
+            [
+              3.8189058003796217,
+              51.332579575866305
+            ],
+            [
+              3.81885454439108,
+              51.3324756786181
+            ],
+            [
+              3.8188253401398167,
+              51.33234393911948
+            ],
+            [
+              3.8187935560655686,
+              51.332249743730465
+            ],
+            [
+              3.818777300244512,
+              51.332217429943576
+            ],
+            [
+              3.818795952379161,
+              51.33218175466542
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601088779,
+        "objectId": 292947,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821706821126426,
+              51.33332232824296
+            ],
+            [
+              3.8216566195983575,
+              51.33329192658711
+            ],
+            [
+              3.8215323002826738,
+              51.33324255901591
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601088786,
+        "objectId": 293671,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8215886942843547,
+              51.33317949603651
+            ],
+            [
+              3.821711804201825,
+              51.33321849962628
+            ],
+            [
+              3.8217853745476913,
+              51.33323216644259
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 600994134,
+        "objectId": 294621,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "HR",
+        "frc": "3",
+        "rijrichtng": "H",
+        "bronjaar": 2022,
+        "geoBron": "Levering Wegbeheerder",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8154515500932447,
+              51.32593264710048
+            ],
+            [
+              3.8155888539923932,
+              51.32577578423697
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261032,
+        "objectId": 294777,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819076722264998,
+              51.33514988256586
+            ],
+            [
+              3.8194292768652134,
+              51.33517801587531
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261141,
+        "objectId": 295512,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819379274259764,
+              51.332714659257974
+            ],
+            [
+              3.8195042434132533,
+              51.332602934298585
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261194,
+        "objectId": 295674,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8197972772688753,
+              51.329352790424004
+            ],
+            [
+              3.820729947578019,
+              51.329560163505036
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261103,
+        "objectId": 295855,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.816834135183493,
+              51.33001198865392
+            ],
+            [
+              3.8169316664106128,
+              51.3301149330633
+            ],
+            [
+              3.816964589101271,
+              51.33017165539286
+            ],
+            [
+              3.816973106698323,
+              51.33019243862161
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261146,
+        "objectId": 297478,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8195042434132533,
+              51.332602934298585
+            ],
+            [
+              3.8195622079172407,
+              51.33253393294684
+            ],
+            [
+              3.819603204087126,
+              51.332439099205274
+            ],
+            [
+              3.819626746365248,
+              51.332351042844635
+            ],
+            [
+              3.8196298764637127,
+              51.332318360804805
+            ],
+            [
+              3.8196600832554624,
+              51.33229792100821
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261104,
+        "objectId": 298867,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.816973106698323,
+              51.33019243862161
+            ],
+            [
+              3.8169819315454236,
+              51.33021405308727
+            ],
+            [
+              3.8169973625813087,
+              51.3302744952337
+            ],
+            [
+              3.817002888838285,
+              51.330330848160834
+            ],
+            [
+              3.8170024526746182,
+              51.33037696181311
+            ],
+            [
+              3.8169891714582223,
+              51.33043773604336
+            ],
+            [
+              3.816960379879611,
+              51.33051556225449
+            ],
+            [
+              3.8169165024440086,
+              51.330593904260866
+            ],
+            [
+              3.816856705478444,
+              51.3306970242435
+            ],
+            [
+              3.8167053577668857,
+              51.33082084563083
+            ],
+            [
+              3.8165948829191185,
+              51.33117509652521
+            ],
+            [
+              3.816591647044176,
+              51.33126090894014
+            ],
+            [
+              3.81660020120034,
+              51.3313001315118
+            ],
+            [
+              3.8166114453859437,
+              51.33133624380375
+            ],
+            [
+              3.8166480253028348,
+              51.331399308650994
+            ],
+            [
+              3.816686478481384,
+              51.33144127186542
+            ],
+            [
+              3.8167547504341006,
+              51.33148831205641
+            ],
+            [
+              3.8168538838352504,
+              51.33154349988508
+            ],
+            [
+              3.8169489153629974,
+              51.33157606701412
+            ],
+            [
+              3.817120634095406,
+              51.33162378251612
+            ],
+            [
+              3.8182455245546403,
+              51.33189758938414
+            ],
+            [
+              3.8183913721058413,
+              51.33193398645533
+            ],
+            [
+              3.8184729588718773,
+              51.331956931544305
+            ],
+            [
+              3.8185333130569052,
+              51.331979680487166
+            ],
+            [
+              3.818616997759054,
+              51.33201676828112
+            ],
+            [
+              3.8186754998301256,
+              51.33205585429202
+            ],
+            [
+              3.8187373028813565,
+              51.3321074810496
+            ],
+            [
+              3.8187768614590594,
+              51.33215494243301
+            ],
+            [
+              3.818795952379161,
+              51.33218175466542
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601088716,
+        "objectId": 300950,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8171819145707744,
+              51.32955271705644
+            ],
+            [
+              3.8171623909538615,
+              51.3296270011712
+            ],
+            [
+              3.817081805286337,
+              51.329764039565674
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601024254,
+        "objectId": 301555,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.81436950151442,
+              51.32924149768275
+            ],
+            [
+              3.814332187985195,
+              51.32927829033729
+            ],
+            [
+              3.814268815617523,
+              51.32935591857026
+            ],
+            [
+              3.8141157849327474,
+              51.3295518303216
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 600483473,
+        "objectId": 301802,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8217853745476913,
+              51.33323216644259
+            ],
+            [
+              3.8218144397194362,
+              51.33321781146388
+            ],
+            [
+              3.8218387216454026,
+              51.33320860827387
+            ],
+            [
+              3.8218626458786864,
+              51.333201468006386
+            ],
+            [
+              3.821898784651904,
+              51.3331938625913
+            ],
+            [
+              3.8219264588336697,
+              51.333190368772165
+            ],
+            [
+              3.8219644119599407,
+              51.33318845151781
+            ],
+            [
+              3.8219880561089594,
+              51.3331894884991
+            ],
+            [
+              3.8220221267074876,
+              51.333193326684786
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282554,
+        "objectId": 302165,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8191508716799514,
+              51.33271861546789
+            ],
+            [
+              3.8191870924962323,
+              51.33270895594915
+            ],
+            [
+              3.8192251902246066,
+              51.332702816163085
+            ],
+            [
+              3.819264312192717,
+              51.332700286216976
+            ],
+            [
+              3.819303738099918,
+              51.33270144631412
+            ],
+            [
+              3.819342320392346,
+              51.33270628100533
+            ],
+            [
+              3.819379274259764,
+              51.332714659257974
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601708502,
+        "objectId": 302256,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.818839980865291,
+              51.335822813051635
+            ],
+            [
+              3.8189106811198736,
+              51.33575765147016
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261130,
+        "objectId": 302355,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8191099063632286,
+              51.32699253298126
+            ],
+            [
+              3.8191831741521156,
+              51.32701035631899
+            ],
+            [
+              3.8192346795246537,
+              51.327022412484936
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 600707618,
+        "objectId": 303289,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8166934367337952,
+              51.32624427534043
+            ],
+            [
+              3.8166469137379524,
+              51.32630183134719
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 90143018,
+        "objectId": 304602,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "3",
+        "rijrichtng": "H",
+        "bronjaar": 2022,
+        "geoBron": "Levering Wegbeheerder",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8154515500932447,
+              51.32593264710048
+            ],
+            [
+              3.815630446301776,
+              51.325892638759214
+            ],
+            [
+              3.815771593560188,
+              51.32591939236716
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601260996,
+        "objectId": 304721,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819123542640926,
+              51.33314555418965
+            ],
+            [
+              3.8190773084924055,
+              51.33318988965611
+            ],
+            [
+              3.8189065386338497,
+              51.33339031824976
+            ],
+            [
+              3.8188264278407527,
+              51.333429626837365
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261080,
+        "objectId": 304770,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8165810534020563,
+              51.32987023417302
+            ],
+            [
+              3.8166175884695646,
+              51.329887921490084
+            ],
+            [
+              3.8166998334252513,
+              51.32992499129814
+            ],
+            [
+              3.8167229051160567,
+              51.32993862765206
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261138,
+        "objectId": 305107,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.819606986587462,
+              51.33263911098436
+            ],
+            [
+              3.819535536178117,
+              51.33274250517491
+            ],
+            [
+              3.8195035622499196,
+              51.33277918255055
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261083,
+        "objectId": 305801,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8167229051160567,
+              51.32993862765206
+            ],
+            [
+              3.8167781715002227,
+              51.32997135813219
+            ],
+            [
+              3.816834135183493,
+              51.33001198865392
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 90144007,
+        "objectId": 306433,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "HR",
+        "frc": "3",
+        "rijrichtng": "H",
+        "bronjaar": 2022,
+        "geoBron": "Levering Wegbeheerder",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.814113412523473,
+              51.32751458477443
+            ],
+            [
+              3.8142461143952584,
+              51.32730525036706
+            ],
+            [
+              3.81428067191154,
+              51.32726610375966
+            ],
+            [
+              3.8143152279341326,
+              51.32722695712236
+            ],
+            [
+              3.8143497853315376,
+              51.3271878104938
+            ],
+            [
+              3.814384342700476,
+              51.32714866295612
+            ],
+            [
+              3.8144188999789996,
+              51.32710951630646
+            ],
+            [
+              3.8144531211397297,
+              51.327070252730465
+            ],
+            [
+              3.8144862418594347,
+              51.32703060748431
+            ],
+            [
+              3.814520650062519,
+              51.32699140934667
+            ],
+            [
+              3.814555056802958,
+              51.326952210280595
+            ],
+            [
+              3.8145894634841864,
+              51.32691301120401
+            ],
+            [
+              3.814623870075187,
+              51.32687381301554
+            ],
+            [
+              3.814658278072134,
+              51.32683461393738
+            ],
+            [
+              3.814692684575579,
+              51.326795414829355
+            ],
+            [
+              3.8147270910197615,
+              51.326756215710844
+            ],
+            [
+              3.814761497373718,
+              51.32671701748046
+            ],
+            [
+              3.814795905133612,
+              51.32667781836038
+            ],
+            [
+              3.8148303158882233,
+              51.326638613876916
+            ],
+            [
+              3.8148647263362814,
+              51.3265994165718
+            ],
+            [
+              3.8148992402514548,
+              51.3265602548166
+            ],
+            [
+              3.814933755510616,
+              51.326521093968836
+            ],
+            [
+              3.814968269307018,
+              51.32648193219256
+            ],
+            [
+              3.8150027844474046,
+              51.32644277132368
+            ],
+            [
+              3.8150372981250293,
+              51.326403609526324
+            ],
+            [
+              3.8150718131465875,
+              51.326364448636355
+            ],
+            [
+              3.815106338055815,
+              51.3263252905672
+            ],
+            [
+              3.815140862905696,
+              51.326286132487475
+            ],
+            [
+              3.8151588177325464,
+              51.326265779298055
+            ],
+            [
+              3.815175415101407,
+              51.3262469702721
+            ],
+            [
+              3.8152099596955855,
+              51.3262078187325
+            ],
+            [
+              3.8152445056954587,
+              51.326168666303126
+            ],
+            [
+              3.8152790501707865,
+              51.32612951474243
+            ],
+            [
+              3.8153136470975246,
+              51.326090380062276
+            ],
+            [
+              3.815348476523346,
+              51.326051325826015
+            ],
+            [
+              3.815382893190665,
+              51.326012130257034
+            ],
+            [
+              3.8154170403518406,
+              51.32597284203806
+            ],
+            [
+              3.8154515500932447,
+              51.32593264710048
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601088715,
+        "objectId": 307047,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2023,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8169885750899555,
+              51.32973595411885
+            ],
+            [
+              3.8170978747477204,
+              51.329604375170106
+            ],
+            [
+              3.8171819145707744,
+              51.32955271705644
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601282556,
+        "objectId": 307217,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "OpenStreetMap (OSM)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8195035622499196,
+              51.33277918255055
+            ],
+            [
+              3.819523634922952,
+              51.33280078099474
+            ],
+            [
+              3.819538194546953,
+              51.33282399177946
+            ],
+            [
+              3.8195469731984497,
+              51.332848383369104
+            ],
+            [
+              3.8195497055528125,
+              51.33287332288252
+            ],
+            [
+              3.8195463482249017,
+              51.33289819211248
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261178,
+        "objectId": 307558,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8197504722684394,
+              51.33293896702467
+            ],
+            [
+              3.8200626600748824,
+              51.332980916152046
+            ],
+            [
+              3.820251206477958,
+              51.33300269203708
+            ],
+            [
+              3.8202673965817713,
+              51.33302419405884
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 600707617,
+        "objectId": 307915,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8166469137379524,
+              51.32630183134719
+            ],
+            [
+              3.8163721943127036,
+              51.32664779300009
+            ],
+            [
+              3.816363771645214,
+              51.32666323237066
+            ],
+            [
+              3.816359921797146,
+              51.32667504745697
+            ],
+            [
+              3.816357965659779,
+              51.326690214448924
+            ],
+            [
+              3.816358699277333,
+              51.32670227116582
+            ],
+            [
+              3.8163613437592794,
+              51.32671300513406
+            ],
+            [
+              3.816365428683421,
+              51.326723578729286
+            ],
+            [
+              3.8163713874181293,
+              51.32673390789549
+            ],
+            [
+              3.816378798948994,
+              51.32674371724821
+            ],
+            [
+              3.816391555702794,
+              51.32675665535808
+            ],
+            [
+              3.816402455799622,
+              51.32676516324151
+            ],
+            [
+              3.816414671443614,
+              51.326772969655835
+            ],
+            [
+              3.816427918869388,
+              51.32677998087125
+            ],
+            [
+              3.8164484378307884,
+              51.32678834879012
+            ],
+            [
+              3.816580785255451,
+              51.32683292705799
+            ],
+            [
+              3.816738662205586,
+              51.32688171343769
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261180,
+        "objectId": 308383,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8202673965817713,
+              51.33302419405884
+            ],
+            [
+              3.8202354257501887,
+              51.33303601299412
+            ],
+            [
+              3.820023789452876,
+              51.33302633279397
+            ],
+            [
+              3.819869249699548,
+              51.333021466185684
+            ],
+            [
+              3.819729328498706,
+              51.333009225513
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601261207,
+        "objectId": 308906,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2024,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8178481539929763,
+              51.32884703502439
+            ],
+            [
+              3.817761034493071,
+              51.32881918536238
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 600994165,
+        "objectId": 309974,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "HR",
+        "frc": "3",
+        "rijrichtng": "H",
+        "bronjaar": 2022,
+        "geoBron": "Levering Wegbeheerder",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.815771593560188,
+              51.32591939236716
+            ],
+            [
+              3.81563205771061,
+              51.32604856707476
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 601088770,
+        "objectId": 310107,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8209951680471845,
+              51.3361066048927
+            ],
+            [
+              3.8209179710038197,
+              51.336101307226485
+            ],
+            [
+              3.8207743337416895,
+              51.33610265149435
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Buitenhaven",
+        "wvkId": 600994120,
+        "objectId": 310230,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "B",
+        "bronjaar": 2022,
+        "geoBron": "Levering Wegbeheerder",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8159662866435364,
+              51.326000477553656
+            ],
+            [
+              3.8164002684945433,
+              51.32614959422617
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Kennedylaan",
+        "wvkId": 600483483,
+        "objectId": 327463,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8233127837998944,
+              51.333305034600045
+            ],
+            [
+              3.8233812743047153,
+              51.333311321399684
+            ],
+            [
+              3.8235844696886585,
+              51.33333706442175
+            ],
+            [
+              3.8237870177382285,
+              51.333364956033
+            ],
+            [
+              3.8239878252112063,
+              51.3333975887058
+            ],
+            [
+              3.8240546022847384,
+              51.333408913562565
+            ],
+            [
+              3.824120918314452,
+              51.33342113120773
+            ],
+            [
+              3.8241867733039023,
+              51.3334342416422
+            ],
+            [
+              3.8243175643224414,
+              51.333462158194514
+            ],
+            [
+              3.8245123694772123,
+              51.333506666303265
+            ],
+            [
+              3.8246160009688586,
+              51.33353143114679
+            ],
+            [
+              3.8246757721097677,
+              51.333550393172494
+            ],
+            [
+              3.824755624199532,
+              51.33357807530698
+            ],
+            [
+              3.8248274275170075,
+              51.33359406201076
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Kennedylaan",
+        "wvkId": 601088792,
+        "objectId": 333131,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8222046326161094,
+              51.33329013092852
+            ],
+            [
+              3.8223241751047166,
+              51.33328975041587
+            ],
+            [
+              3.822416793405565,
+              51.333285293303824
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Kennedylaan",
+        "wvkId": 601088788,
+        "objectId": 340401,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8233127837998944,
+              51.333305034600045
+            ],
+            [
+              3.823199207540388,
+              51.333314000931146
+            ],
+            [
+              3.8230910839035483,
+              51.33331569542828
+            ],
+            [
+              3.8228995207777485,
+              51.3333232814388
+            ],
+            [
+              3.8227709299534887,
+              51.33333593841668
+            ],
+            [
+              3.8224283934279657,
+              51.33335793854804
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Kennedylaan",
+        "wvkId": 601088793,
+        "objectId": 346349,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.822416793405565,
+              51.333285293303824
+            ],
+            [
+              3.8227650861773332,
+              51.333263489204505
+            ],
+            [
+              3.822956151066582,
+              51.333257874558385
+            ],
+            [
+              3.823075965423885,
+              51.333262630302066
+            ],
+            [
+              3.8231926075037195,
+              51.33327201819921
+            ],
+            [
+              3.8233127837998944,
+              51.333305034600045
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Kennedylaan",
+        "wvkId": 601088789,
+        "objectId": 351193,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8224283934279657,
+              51.33335793854804
+            ],
+            [
+              3.8222230121874747,
+              51.3333745023517
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Kennedylaan",
+        "wvkId": 600483485,
+        "objectId": 361569,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.822039937919192,
+              51.333511186327875
+            ],
+            [
+              3.8220186772583005,
+              51.33351480412717
+            ],
+            [
+              3.8219953371056468,
+              51.333517457201545
+            ],
+            [
+              3.8219555373472955,
+              51.33351881024107
+            ],
+            [
+              3.8219175851494467,
+              51.33351650213595
+            ],
+            [
+              3.821894445042961,
+              51.333513314279855
+            ],
+            [
+              3.821870539508946,
+              51.33350850689416
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Kennedylaan",
+        "wvkId": 600483484,
+        "objectId": 364049,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8222230121874747,
+              51.3333745023517
+            ],
+            [
+              3.822216059040159,
+              51.33339599966706
+            ],
+            [
+              3.8222023363836204,
+              51.333419549268065
+            ],
+            [
+              3.822183358452356,
+              51.333441499922415
+            ],
+            [
+              3.8221605966468073,
+              51.33346079258212
+            ],
+            [
+              3.8221324361111666,
+              51.3334784843624
+            ],
+            [
+              3.822101947720361,
+              51.333492908398455
+            ],
+            [
+              3.8220685484542964,
+              51.33350432655795
+            ],
+            [
+              3.822039937919192,
+              51.333511186327875
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Schependijk",
+        "wvkId": 600483486,
+        "objectId": 675710,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8222046326161094,
+              51.33329013092852
+            ],
+            [
+              3.822215807962803,
+              51.33331112926055
+            ],
+            [
+              3.8222230225213747,
+              51.333335140010114
+            ],
+            [
+              3.82222484571629,
+              51.333353144812804
+            ],
+            [
+              3.8222230121874747,
+              51.3333745023517
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Schependijk",
+        "wvkId": 600483487,
+        "objectId": 684844,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8220221267074876,
+              51.333193326684786
+            ],
+            [
+              3.8220533067684803,
+              51.333199265670814
+            ],
+            [
+              3.8220801843972634,
+              51.33320645939137
+            ],
+            [
+              3.8221143428055955,
+              51.33321896523645
+            ],
+            [
+              3.8221376423244418,
+              51.333230066526056
+            ],
+            [
+              3.8221587409106967,
+              51.333242576658925
+            ],
+            [
+              3.8221756364564445,
+              51.333256288929064
+            ],
+            [
+              3.8221907521786047,
+              51.33327168540864
+            ],
+            [
+              3.8222046326161094,
+              51.33329013092852
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Schependijk",
+        "wvkId": 600902473,
+        "objectId": 686520,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.822050718767954,
+              51.333088312191585
+            ],
+            [
+              3.822051122085871,
+              51.333099625425184
+            ],
+            [
+              3.822047369241185,
+              51.33311701588572
+            ],
+            [
+              3.8220342364514006,
+              51.33314848472839
+            ],
+            [
+              3.8220221267074876,
+              51.333193326684786
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Schependijk",
+        "wvkId": 91145012,
+        "objectId": 694683,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.822608158980707,
+              51.33355478728282
+            ],
+            [
+              3.822698193109607,
+              51.333607722511424
+            ],
+            [
+              3.8227869843286233,
+              51.33362159135464
+            ],
+            [
+              3.822892285015108,
+              51.333610149853605
+            ],
+            [
+              3.822987645516711,
+              51.33360819421367
+            ],
+            [
+              3.8230535160399453,
+              51.33360826978041
+            ],
+            [
+              3.823119372279365,
+              51.333604569255044
+            ],
+            [
+              3.8231843135502754,
+              51.33359824926177
+            ],
+            [
+              3.823256211054393,
+              51.33358995491047
+            ],
+            [
+              3.8233130522739027,
+              51.33358124617141
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Schependijk",
+        "wvkId": 600902474,
+        "objectId": 721400,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8246595907888867,
+              51.3257718670609
+            ],
+            [
+              3.8242690444499052,
+              51.32634922014713
+            ],
+            [
+              3.8231579397588695,
+              51.328292357497894
+            ],
+            [
+              3.82271527074378,
+              51.32905057436424
+            ],
+            [
+              3.8226449524446995,
+              51.329159669144474
+            ],
+            [
+              3.821700971921909,
+              51.33082400651782
+            ],
+            [
+              3.821674961444694,
+              51.33088371109581
+            ],
+            [
+              3.821617738878734,
+              51.33099576828518
+            ],
+            [
+              3.8215943304324913,
+              51.331038156829386
+            ],
+            [
+              3.821140828405903,
+              51.331889000871385
+            ],
+            [
+              3.821070884020487,
+              51.33201625990322
+            ],
+            [
+              3.8210283406015297,
+              51.33210190336653
+            ],
+            [
+              3.820987792918405,
+              51.33218793326102
+            ],
+            [
+              3.8209459137502195,
+              51.332296061015796
+            ],
+            [
+              3.82090839801432,
+              51.33240667478237
+            ],
+            [
+              3.8208986844696184,
+              51.33244304417199
+            ],
+            [
+              3.8208946676940103,
+              51.33246393721007
+            ],
+            [
+              3.8208940892138923,
+              51.33248919176415
+            ],
+            [
+              3.820895802771895,
+              51.33251456704558
+            ],
+            [
+              3.8209010650140502,
+              51.33253270802823
+            ],
+            [
+              3.8209041455971393,
+              51.33253913246863
+            ],
+            [
+              3.820915219556981,
+              51.3325551939751
+            ],
+            [
+              3.8209309810193686,
+              51.33257266704468
+            ],
+            [
+              3.820951888042167,
+              51.33259074872182
+            ],
+            [
+              3.8209708343303523,
+              51.33260323013066
+            ],
+            [
+              3.820979573959814,
+              51.332607842741574
+            ],
+            [
+              3.8210251597625895,
+              51.3326260764878
+            ],
+            [
+              3.821067826909329,
+              51.33263734854839
+            ],
+            [
+              3.8210882225770524,
+              51.33264103907723
+            ],
+            [
+              3.821408705821995,
+              51.33266971161504
+            ],
+            [
+              3.821565771789159,
+              51.33268458922053
+            ],
+            [
+              3.821634544360947,
+              51.33269207654079
+            ],
+            [
+              3.8216915421095146,
+              51.33269976514748
+            ],
+            [
+              3.821759628920904,
+              51.332714705002154
+            ],
+            [
+              3.8218228916036203,
+              51.332736412491414
+            ],
+            [
+              3.821880964473002,
+              51.33276299477577
+            ],
+            [
+              3.821932849572715,
+              51.33279425864724
+            ],
+            [
+              3.8219695460583987,
+              51.33282064348495
+            ],
+            [
+              3.822007631573864,
+              51.33285675634299
+            ],
+            [
+              3.822017022767791,
+              51.3328674909348
+            ],
+            [
+              3.8220378836980315,
+              51.33289950652804
+            ],
+            [
+              3.822049811475632,
+              51.33291998457104
+            ],
+            [
+              3.8220653241622347,
+              51.33299921648381
+            ],
+            [
+              3.822063284365344,
+              51.33304620756692
+            ],
+            [
+              3.822050718767954,
+              51.333088312191585
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 601088746,
+        "objectId": 1288728,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821986907388226,
+              51.33364374724721
+            ],
+            [
+              3.8219741392065814,
+              51.333725743840915
+            ],
+            [
+              3.821955055353056,
+              51.333775922113915
+            ],
+            [
+              3.8218801354671834,
+              51.333886647496534
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483476,
+        "objectId": 1290122,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821870539508946,
+              51.33350850689416
+            ],
+            [
+              3.8218568425140935,
+              51.333504987452436
+            ],
+            [
+              3.821834124739397,
+              51.33349784959364
+            ],
+            [
+              3.8218126007243343,
+              51.33348937925276
+            ],
+            [
+              3.821793823774721,
+              51.333480316520934
+            ],
+            [
+              3.8217752549177373,
+              51.33346936865102
+            ],
+            [
+              3.821758444380667,
+              51.33345736559416
+            ],
+            [
+              3.8217361914289127,
+              51.33343665883334
+            ],
+            [
+              3.8217246219868413,
+              51.3334224786821
+            ],
+            [
+              3.821716055720684,
+              51.33340860860254
+            ],
+            [
+              3.8217061189896433,
+              51.33338447132648
+            ],
+            [
+              3.821703062230342,
+              51.33336896717512
+            ],
+            [
+              3.821702029129792,
+              51.33335304071796
+            ],
+            [
+              3.8217032788781213,
+              51.33333750455285
+            ],
+            [
+              3.821706821126426,
+              51.33332232824296
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 601088752,
+        "objectId": 1290527,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8213745893563584,
+              51.336368900406896
+            ],
+            [
+              3.821348181380854,
+              51.33657664761467
+            ],
+            [
+              3.821314973194244,
+              51.33662522444699
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483480,
+        "objectId": 1291778,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2021,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8218801354671834,
+              51.333886647496534
+            ],
+            [
+              3.8218594494202796,
+              51.33376269823619
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483479,
+        "objectId": 1291891,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.82149981062727,
+              51.33557666350623
+            ],
+            [
+              3.82150339651803,
+              51.335531651271275
+            ],
+            [
+              3.8215720500360555,
+              51.3352201663886
+            ],
+            [
+              3.821746348901789,
+              51.33445151386681
+            ],
+            [
+              3.8217875852463563,
+              51.33428673923423
+            ],
+            [
+              3.821827979613284,
+              51.33410882764967
+            ],
+            [
+              3.8218801354671834,
+              51.333886647496534
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483501,
+        "objectId": 1293610,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.82121192137426,
+              51.336214488498946
+            ],
+            [
+              3.821178870546519,
+              51.33621089935062
+            ],
+            [
+              3.8211423827936217,
+              51.33620348631721
+            ],
+            [
+              3.821108157762382,
+              51.33619286724299
+            ],
+            [
+              3.8210781730525616,
+              51.336179967737465
+            ],
+            [
+              3.8210501703185686,
+              51.336163678617645
+            ],
+            [
+              3.821026267532626,
+              51.336145017282504
+            ],
+            [
+              3.821007026199567,
+              51.33612435089161
+            ],
+            [
+              3.8209951680471845,
+              51.3361066048927
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600933181,
+        "objectId": 1293989,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821271683037584,
+              51.33589125995001
+            ],
+            [
+              3.821301797914721,
+              51.33589466036407
+            ],
+            [
+              3.8213381450714694,
+              51.33590198155787
+            ],
+            [
+              3.8213708104019255,
+              51.33591204018796
+            ],
+            [
+              3.8213984683359525,
+              51.33592373062793
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 601088745,
+        "objectId": 1297461,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.822039937919192,
+              51.333511186327875
+            ],
+            [
+              3.82199852238642,
+              51.33357530668772
+            ],
+            [
+              3.821986907388226,
+              51.33364374724721
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 601088741,
+        "objectId": 1302939,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "B",
+        "bronjaar": 2023,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8218594494202796,
+              51.33376269823619
+            ],
+            [
+              3.821878180149698,
+              51.33364489670054
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600933190,
+        "objectId": 1306121,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8214732853236826,
+              51.33579712393482
+            ],
+            [
+              3.821446541080377,
+              51.33584644128128
+            ],
+            [
+              3.821424711707498,
+              51.33587617492106
+            ],
+            [
+              3.8213984683359525,
+              51.33592373062793
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 91146043,
+        "objectId": 1307465,
+        "fow": "3",
+        "fowMeaning": "single_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821314973194244,
+              51.33662522444699
+            ],
+            [
+              3.8212747406565204,
+              51.336981655500516
+            ],
+            [
+              3.8212577222996726,
+              51.3371599711097
+            ],
+            [
+              3.8212464190268043,
+              51.3373139103427
+            ],
+            [
+              3.8212350093169034,
+              51.337517024274526
+            ],
+            [
+              3.821230439496495,
+              51.33765037668753
+            ],
+            [
+              3.821233722211627,
+              51.3377398728355
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600933185,
+        "objectId": 1309466,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821271683037584,
+              51.33589125995001
+            ],
+            [
+              3.8213770991057454,
+              51.33577147919566
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600933189,
+        "objectId": 1311308,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2021,
+        "geoBron": "Luchtfoto's, satellietbeelden",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.82149981062727,
+              51.33557666350623
+            ],
+            [
+              3.821514109084113,
+              51.33565882613281
+            ],
+            [
+              3.8215024428788986,
+              51.335722858988554
+            ],
+            [
+              3.8214846813679726,
+              51.33577629142412
+            ],
+            [
+              3.8214732853236826,
+              51.33579712393482
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483492,
+        "objectId": 1314450,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "4",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821371502700867,
+              51.3361931697591
+            ],
+            [
+              3.8213529271265627,
+              51.33619939473092
+            ],
+            [
+              3.8213311992742796,
+              51.336205215914674
+            ],
+            [
+              3.82129437153056,
+              51.33621191289723
+            ],
+            [
+              3.821254788576556,
+              51.33621524646744
+            ],
+            [
+              3.8212311028504162,
+              51.336215377512524
+            ],
+            [
+              3.82121192137426,
+              51.336214488498946
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 601088751,
+        "objectId": 1314731,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821371502700867,
+              51.3361931697591
+            ],
+            [
+              3.8213745893563584,
+              51.336368900406896
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 601088757,
+        "objectId": 1314862,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "T",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.82121192137426,
+              51.336214488498946
+            ],
+            [
+              3.821256400660799,
+              51.33626453417752
+            ],
+            [
+              3.821276106238468,
+              51.33630516490556
+            ],
+            [
+              3.821277448427022,
+              51.33635906273236
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483477,
+        "objectId": 1315747,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821706821126426,
+              51.33332232824296
+            ],
+            [
+              3.821710470900409,
+              51.3333118893908
+            ],
+            [
+              3.821717870414848,
+              51.33329697529919
+            ],
+            [
+              3.8217233361706158,
+              51.33328823841934
+            ],
+            [
+              3.821734758358506,
+              51.33327319859549
+            ],
+            [
+              3.8217562877047477,
+              51.33325218132297
+            ],
+            [
+              3.8217721986115847,
+              51.33324016858123
+            ],
+            [
+              3.8217853745476913,
+              51.33323216644259
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483491,
+        "objectId": 1319659,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8213984683359525,
+              51.33592373062793
+            ],
+            [
+              3.8214227738469124,
+              51.335936922297904
+            ],
+            [
+              3.8214437965070323,
+              51.33595167906644
+            ],
+            [
+              3.8214595421051034,
+              51.33596546587366
+            ],
+            [
+              3.8214767967471355,
+              51.33598547617023
+            ],
+            [
+              3.8214867271626467,
+              51.336001432335735
+            ],
+            [
+              3.821495874407061,
+              51.33602349127547
+            ],
+            [
+              3.8214993123722616,
+              51.33604043897849
+            ],
+            [
+              3.821499534566134,
+              51.33606327695171
+            ],
+            [
+              3.8214963704745686,
+              51.3360802258036
+            ],
+            [
+              3.8214877168547234,
+              51.336102405048166
+            ],
+            [
+              3.8214779845559144,
+              51.336118366586206
+            ],
+            [
+              3.8214610751082385,
+              51.336138546910824
+            ],
+            [
+              3.8214453792019905,
+              51.33615263024405
+            ],
+            [
+              3.8214211177546256,
+              51.33616956517223
+            ],
+            [
+              3.8213978678964104,
+              51.33618210852079
+            ],
+            [
+              3.821371502700867,
+              51.3361931697591
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600933182,
+        "objectId": 1324886,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.820987634336308,
+              51.33601485976164
+            ],
+            [
+              3.820994494928614,
+              51.33600002836575
+            ],
+            [
+              3.8210039004224856,
+              51.335985231191955
+            ],
+            [
+              3.821023310354807,
+              51.335963286526386
+            ],
+            [
+              3.8210372140249467,
+              51.33595124688402
+            ],
+            [
+              3.821054130256726,
+              51.335939247750055
+            ],
+            [
+              3.8210727279129495,
+              51.33592843994342
+            ],
+            [
+              3.821093010073263,
+              51.335918733603265
+            ],
+            [
+              3.8211275990285656,
+              51.33590616298337
+            ],
+            [
+              3.8211512070829627,
+              51.335899917612515
+            ],
+            [
+              3.8211754800595457,
+              51.33589520950348
+            ],
+            [
+              3.821200421039881,
+              51.335891948795634
+            ],
+            [
+              3.821224012411084,
+              51.335890378065244
+            ],
+            [
+              3.821249422514297,
+              51.335890180306464
+            ],
+            [
+              3.821271683037584,
+              51.33589125995001
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600483503,
+        "objectId": 1332165,
+        "fow": "4",
+        "fowMeaning": "roundabout",
+        "bstCode": "NRB",
+        "frc": "5",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8209951680471845,
+              51.3361066048927
+            ],
+            [
+              3.820985821701997,
+              51.336085587890075
+            ],
+            [
+              3.8209808965127476,
+              51.33606178765427
+            ],
+            [
+              3.8209815722709313,
+              51.33603788293467
+            ],
+            [
+              3.820987634336308,
+              51.33601485976164
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 601088758,
+        "objectId": 1336121,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "T",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821277448427022,
+              51.33635906273236
+            ],
+            [
+              3.82127164354559,
+              51.33639770347361
+            ],
+            [
+              3.8212808209339606,
+              51.33657385404528
+            ],
+            [
+              3.821314973194244,
+              51.33662522444699
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 601088742,
+        "objectId": 1337495,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "5",
+        "rijrichtng": "B",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.821878180149698,
+              51.33364489670054
+            ],
+            [
+              3.8218841570382427,
+              51.33355390139553
+            ],
+            [
+              3.821870539508946,
+              51.33350850689416
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sttNaam": "Binnenvaartweg",
+        "wvkId": 600933186,
+        "objectId": 1338626,
+        "fow": "2",
+        "fowMeaning": "multiple_carriageway",
+        "bstCode": "RB",
+        "frc": "6",
+        "rijrichtng": "H",
+        "bronjaar": 2026,
+        "geoBron": "Basisregistratie Grootschalige Topografie (BGT)",
+        "kind": "road",
+        "_source": "nwb",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              3.8213770991057454,
+              51.33577147919566
+            ],
+            [
+              3.8214042217013966,
+              51.33573277623007
+            ],
+            [
+              3.821443590893864,
+              51.3356560800966
+            ],
+            [
+              3.82149981062727,
+              51.33557666350623
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "filter": "Lock-island bbox; streets Buitenhaven, Kennedylaan, Binnenvaartweg, Schependijk, Westkolkstraat; BST in RB/NRB/HR (rijbanen)."
+}

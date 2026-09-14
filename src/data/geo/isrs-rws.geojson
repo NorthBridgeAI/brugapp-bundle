@@ -1,0 +1,1391 @@
+{
+  "type": "FeatureCollection",
+  "name": "isrs-rws",
+  "groundTruth": true,
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "source": {
+    "name": "Rijkswaterstaat Vaarwegen (FIS/VNDS) OGC API Features",
+    "url": "https://geo.rijkswaterstaat.nl/services/ogc/gdr/fis_vnds/ogc/features/v1",
+    "license": "Rijkswaterstaat open data (publieke OGC API)",
+    "retrievedAt": "2026-09-14T08:58:37Z",
+    "note": "Collections sluis_v, sluiskolk_v, brug, isrs_object. Polygon/point geometry as published; attributes length/width used where present."
+  },
+  "generatedAt": "2026-09-14T08:58:37Z",
+  "featureCount": 62,
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ01205J319400002",
+        "objectName": "ongoing : Scheepsdienst Terneuzen",
+        "function": "junction",
+        "rwsId": 9063290,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8159,
+          51.336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001300956400303",
+        "objectName": "Westsluis Terneuzen",
+        "function": "lokare",
+        "rwsId": 9064445,
+        "kind": "isrs",
+        "operationalLock": true,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.817,
+          51.3284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001300522400303",
+        "objectName": "Zuidbrug Westsluis Terneuzen",
+        "function": "brgare",
+        "rwsId": 9064446,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8183,
+          51.3268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001300522500303",
+        "objectName": "Doorvaartopening (beweegbaar) Zuidbrug Westsluis Terneuzen",
+        "function": "bridge_5",
+        "rwsId": 9064447,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8183,
+          51.3269
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001300956500303",
+        "objectName": "Sluiskolk Westsluis Terneuzen",
+        "function": "lokbsn",
+        "rwsId": 9064448,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.817,
+          51.3284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ00130J199100305",
+        "objectName": "junction  : Westbuitenhaven, Kanaal van Gent naar Terneuzen - Kanaal Gent-Terne",
+        "function": "junction",
+        "rwsId": 9064449,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.816,
+          51.3298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001300522600307",
+        "objectName": "Noordbrug over Westsluis Terneuzen",
+        "function": "brgare",
+        "rwsId": 9064450,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8161,
+          51.3297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001300522700307",
+        "objectName": "Doorvaartopening (beweegbaar) Noordbrug over Westsluis Terneuzen",
+        "function": "bridge_5",
+        "rwsId": 9064451,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8161,
+          51.3297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ0130BJ175000006",
+        "objectName": "junction  : Toeleidingskanaal naar Middensluis Terneuzen - Zijkanaal A te Terne",
+        "function": "junction",
+        "rwsId": 9064469,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": true,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8249,
+          51.3242
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ0130BJ175100011",
+        "objectName": "junction  : Toeleidingskanaal naar Middensluis Terneuzen - Toeleidingskanaal na",
+        "function": "junction",
+        "rwsId": 9064473,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": true,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8206,
+          51.332
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B20497600005",
+        "objectName": "Brug over binnenhoofd Oostsluis Terneuzen",
+        "function": "brgare",
+        "rwsId": 9064499,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": true,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8204,
+          51.333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B20497700005",
+        "objectName": "Doorvaartopening (beweegbaar) brug over binnenhoofd Oostsluis Terneuzen",
+        "function": "bridge_5",
+        "rwsId": 9064500,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8204,
+          51.333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B20948400005",
+        "objectName": "Oostsluis Terneuzen",
+        "function": "lokare",
+        "rwsId": 9064501,
+        "kind": "isrs",
+        "operationalLock": true,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8201,
+          51.3344
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B20948500005",
+        "objectName": "Sluiskolk Oostsluis Terneuzen",
+        "function": "lokbsn",
+        "rwsId": 9064502,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8201,
+          51.3347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B2J175600007",
+        "objectName": "junction  : Toeleidingskanaal naar de Oostbuitenhaven - Toeleidingskanaal naar",
+        "function": "junction",
+        "rwsId": 9064503,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.82,
+          51.3349
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B20497800009",
+        "objectName": "Brug over buitenhoofd Oostsluis Terneuzen",
+        "function": "brgare",
+        "rwsId": 9064504,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": true,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8198,
+          51.3361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B20497900009",
+        "objectName": "Doorvaartopening (beweegbaar) brug over buitenhoofd Oostsluis Terneuzen",
+        "function": "bridge_5",
+        "rwsId": 9064505,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8198,
+          51.3361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B1J175000000",
+        "objectName": "junction : Toeleidingskanaal naar Middensluis Terneuzen - Zijkanaal A te Terne",
+        "function": "junction",
+        "rwsId": 9073311,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": true,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8249,
+          51.3242
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B2J175100000",
+        "objectName": "junction  : Toeleidingskanaal naar Middensluis Terneuzen - Toeleidingskanaal na",
+        "function": "junction",
+        "rwsId": 9073932,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": true,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8206,
+          51.332
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001301102800317",
+        "objectName": "TWZZ Terneuzen Westsluis Zee",
+        "function": "wtwgag",
+        "rwsId": 23589781,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8126,
+          51.3377
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B21349100004",
+        "objectName": "Wachtplaats Oostsluis Terneuzen - Binnen oost",
+        "function": "berths_1",
+        "rwsId": 24952487,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8225,
+          51.329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ00130R956400303",
+        "objectName": "Meldpunt Westsluis Terneuzen Zuid",
+        "function": "rdocal",
+        "rwsId": 25676145,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8216,
+          51.3227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B2R948400005",
+        "objectName": "Meldpunt Oostsluis Terneuzen Zuid",
+        "function": "rdocal",
+        "rwsId": 25676205,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8228,
+          51.3278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B2R497800009",
+        "objectName": "Meldpunt brug over buitenhoofd Oostsluis Terneuzen",
+        "function": "rdocal",
+        "rwsId": 25676389,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8198,
+          51.3361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ00130R522600307",
+        "objectName": "Meldpunt Noordbrug over Westsluis Terneuzen",
+        "function": "rdocal",
+        "rwsId": 25676395,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8161,
+          51.3297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ00130R522400303",
+        "objectName": "Meldpunt Zuidbrug Westsluis Terneuzen",
+        "function": "rdocal",
+        "rwsId": 25676947,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8183,
+          51.3269
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B2R497600005",
+        "objectName": "Meldpunt brug over binnenhoofd Oostsluis Terneuzen",
+        "function": "rdocal",
+        "rwsId": 25677143,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8204,
+          51.333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B21559700009",
+        "objectName": "Meldpunt sector Centrale Terneuzen oostsluis",
+        "function": "rdocal",
+        "rwsId": 28090430,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8198,
+          51.3363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001301559800307",
+        "objectName": "Meldpunt Sector Centrale Terneuzen west sluis",
+        "function": "rdocal",
+        "rwsId": 28090433,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8159,
+          51.3301
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ0130B1567500012",
+        "objectName": "Meldpunt Havendienst Terneuzen (Westsluis)",
+        "function": "rdocal",
+        "rwsId": 28297835,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8187,
+          51.3263
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ012050CALA00001",
+        "objectName": "KANAAL CALAMITEITENKADE",
+        "function": "termnl",
+        "rwsId": 28541689,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8156,
+          51.3366
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ0130BMSLUI00015",
+        "objectName": "BINNENZIJDE MIDDENSLUIS WESTZ",
+        "function": "termnl",
+        "rwsId": 28541903,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": true,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8189,
+          51.3312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ01205SLUIS00001",
+        "objectName": "TERNEUZEN SLUIZEN ALGEMEEN",
+        "function": "termnl",
+        "rwsId": 28541924,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8157,
+          51.3368
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ00130TMOSW00302",
+        "objectName": "KANAAL M&O SLUIS WESTZIJDE",
+        "function": "termnl",
+        "rwsId": 28541938,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8189,
+          51.3261
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B21571400014",
+        "objectName": "Meldpunt Oostsluis Terneuzen Noord",
+        "function": "rdocal",
+        "rwsId": 29184470,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8187,
+          51.3408
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B1ZKAOH00012",
+        "objectName": "ZIJKANAAL A OOST HOTEL (MARTENS)",
+        "function": "termnl",
+        "rwsId": 33498737,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8241,
+          51.3284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B1ZKAOD00012",
+        "objectName": "ZIJKANAAL A OOST DELTA (DE LEGE)",
+        "function": "termnl",
+        "rwsId": 33498747,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8241,
+          51.3284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B1ZKAOF00012",
+        "objectName": "ZIJKANAAL A OOST FOXTROT (MULTRA)",
+        "function": "termnl",
+        "rwsId": 33498797,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8241,
+          51.3284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B2WPOSO00004",
+        "objectName": "KANAAL WACHTPLAATS OOSTSLUIS OOST",
+        "function": "termnl",
+        "rwsId": 33563850,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8208,
+          51.3322
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001304340800316",
+        "objectName": "Wachtplaats Westsluis Terneuzen - Buiten",
+        "function": "berths_3",
+        "rwsId": 34579455,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8092,
+          51.3361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001304340900314",
+        "objectName": "Wachtplaats Zeevaart Westsluis Terneuzen - Buiten",
+        "function": "berths_3",
+        "rwsId": 34579466,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8111,
+          51.3349
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B24341000012",
+        "objectName": "Wachtplaats Oostsluis Terneuzen - Buiten west",
+        "function": "berths_3",
+        "rwsId": 34579469,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8184,
+          51.3392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B24341100012",
+        "objectName": "Wachtplaats Oostsluis Terneuzen - Buiten oost",
+        "function": "berths_3",
+        "rwsId": 34579472,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8197,
+          51.3392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B24341200013",
+        "objectName": "Ligplaats Oostsluis Terneuzen - Buiten oost",
+        "function": "berths_3",
+        "rwsId": 34579475,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8199,
+          51.3404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ0130B4341300011",
+        "objectName": "Wachtplaats Oostsluis Terneuzen - Binnen West",
+        "function": "berths_3",
+        "rwsId": 34579478,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8214,
+          51.3292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001304604500304",
+        "objectName": "Nieuwe Sluis Terneuzen",
+        "function": "lokare",
+        "rwsId": 43026548,
+        "kind": "isrs",
+        "operationalLock": true,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8189,
+          51.3295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ00130LOKB100304",
+        "objectName": "Sluiskolk Nieuwe Sluis Terneuzen",
+        "function": "lokbsn",
+        "rwsId": 43026566,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8189,
+          51.3295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001304605400302",
+        "objectName": "Brug over binnenhoofd Nieuwe Sluis Terneuzen",
+        "function": "brgare",
+        "rwsId": 43069470,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8203,
+          51.3273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001304605500307",
+        "objectName": "Brug over buitenhoofd Nieuwe Sluis Terneuzen",
+        "function": "brgare",
+        "rwsId": 43069475,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8176,
+          51.3317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001304859800297",
+        "objectName": "Meldpunt Nieuwe Sluis Terneuzen Zuid",
+        "function": "rdocal",
+        "rwsId": 59023321,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.823,
+          51.323
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ012054859900001",
+        "objectName": "Meldpunt Nieuwe Sluis Terneuzen Noord",
+        "function": "rdocal",
+        "rwsId": 59023324,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8149,
+          51.336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001304860000313",
+        "objectName": "Meldpunt Westsluis Terneuzen Noord",
+        "function": "rdocal",
+        "rwsId": 59023339,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8124,
+          51.3342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001304860100308",
+        "objectName": "Meldpunt Sector Centrale Terneuzen Nieuwe Sluis",
+        "function": "rdocal",
+        "rwsId": 59024505,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8172,
+          51.3322
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B24860300004",
+        "objectName": "Meldpunt Havendienst Terneuzen (Oostsluis)",
+        "function": "rdocal",
+        "rwsId": 59024515,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8206,
+          51.3325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ001304860400302",
+        "objectName": "Meldpunt Havendienst Terneuzen (Nieuw Sluis)",
+        "function": "rdocal",
+        "rwsId": 59024520,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8206,
+          51.3268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ0130EJ175400025",
+        "objectName": "junction: Nieuwe Sluis Terneuzen - Westbuitenhaven, Kanaal van Gent naar Terneuz",
+        "function": "junction",
+        "rwsId": 59447450,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8111,
+          51.3399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B2LKP1100006",
+        "objectName": "Deelkolk 1 sluiskolk Oostsluis Terneuzen",
+        "function": "lkbspt",
+        "rwsId": 61220567,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8202,
+          51.3341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ130B2LKP1200006",
+        "objectName": "Deelkolk 2 sluiskolk Oostsluis Terneuzen",
+        "function": "lkbspt",
+        "rwsId": 61220615,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8199,
+          51.3355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ00130LKP1100303",
+        "objectName": "Deelkolk 1 sluiskolk Westsluis Terneuzen",
+        "function": "lkbspt",
+        "rwsId": 61220620,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8177,
+          51.3275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ00130LKP1200303",
+        "objectName": "Deelkolk 2 sluiskolk Westsluis Terneuzen",
+        "function": "lkbspt",
+        "rwsId": 61220625,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8166,
+          51.329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ0130E5086900307",
+        "objectName": "Doorvaartopening over buitenhoofd Nieuwe Sluis Terneuzen",
+        "function": "bridge_5",
+        "rwsId": 62764584,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8176,
+          51.3317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "code": "NLTNZ0130E5087000302",
+        "objectName": "Doorvaartopening over binnenhoofd Nieuwe Sluis Terneuzen",
+        "function": "bridge_5",
+        "rwsId": 62764605,
+        "kind": "isrs",
+        "operationalLock": false,
+        "leftoverMiddensluisToponym": false,
+        "knownNdwLive": false,
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8203,
+          51.3273
+        ]
+      }
+    }
+  ],
+  "knownNdwLiveIsrs": [
+    "NLTNZ130B20497600005",
+    "NLTNZ130B20497800009"
+  ],
+  "note": "NDW fetch codes are unchanged. Unseen ISRS must never paint open. Leftover 'Middensluis' names are toponyms/junctions, not an operational lock."
+}

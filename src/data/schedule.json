@@ -1,0 +1,26 @@
+{
+  "timezone": "Europe/Amsterdam",
+  "soonWindowMinutes": 15,
+  "notes": "Rush holds are official weekday shipping closures (bedientijden) so road traffic can cross Sluiskil. Sluiskil, Sas van Gent and the Noordzeesluizen open on request — do not invent daily opening slots.",
+  "rushHolds": [
+    {
+      "id": "morning-peak",
+      "bridgeIds": ["sluiskil"],
+      "days": [1, 2, 3, 4, 5],
+      "start": "07:40",
+      "end": "08:00",
+      "label": "Spitsvrij ochtend",
+      "detail": "Scheepvaart gestremd; wegverkeer heeft voorrang."
+    },
+    {
+      "id": "evening-peak",
+      "bridgeIds": ["sluiskil"],
+      "days": [1, 2, 3, 4, 5],
+      "start": "16:40",
+      "end": "17:00",
+      "label": "Spitsvrij avond",
+      "detail": "Scheepvaart gestremd; wegverkeer heeft voorrang."
+    }
+  ],
+  "openings": {}
+}
