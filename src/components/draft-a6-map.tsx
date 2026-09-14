@@ -498,9 +498,9 @@ function watchA6Size(
   const observer = new ResizeObserver(() => sync());
   observer.observe(map.getContainer());
   const frame = window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(sync);
+    window.requestAnimationFrame(() => sync());
   });
-  map.once("idle", sync);
+  map.once("idle", () => sync());
 
   return {
     refit: sync,
