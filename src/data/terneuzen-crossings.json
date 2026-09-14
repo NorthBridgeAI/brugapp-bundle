@@ -1,0 +1,67 @@
+{
+  "space": "terneuzen",
+  "name": "Noordzeesluizen Terneuzen",
+  "bbox": {
+    "latMin": 51.325,
+    "latMax": 51.342,
+    "lngMin": 3.812,
+    "lngMax": 3.828
+  },
+  "isrsPrefix": "NLTNZ130",
+  "landmarks": [
+    {
+      "id": "nieuwe-sluis",
+      "label": "Nieuwe Sluis",
+      "coordinates": { "lat": 51.3294933, "lng": 3.8188914 }
+    },
+    {
+      "id": "westsluis",
+      "label": "Westsluis",
+      "coordinates": { "lat": 51.3284182, "lng": 3.8170477 }
+    },
+    {
+      "id": "oostsluis",
+      "label": "Oostsluis",
+      "coordinates": { "lat": 51.334719, "lng": 3.8200931 }
+    }
+  ],
+  "crossings": [
+    {
+      "id": "buitenhaven-noord",
+      "label": "Buitenhaven noord",
+      "road": "Buitenhaven",
+      "coordinates": { "lat": 51.336056, "lng": 3.819774 },
+      "isrs": "NLTNZ130B20497800009",
+      "osmWay": 7614741
+    },
+    {
+      "id": "buitenhaven-oostsluis",
+      "label": "Buitenhaven Oostsluis",
+      "road": "Buitenhaven",
+      "coordinates": { "lat": 51.33302, "lng": 3.820414 },
+      "isrs": "NLTNZ130B20497600005",
+      "osmWay": 7614718
+    },
+    {
+      "id": "buitenhaven-midden",
+      "label": "Buitenhaven midden",
+      "road": "Buitenhaven",
+      "coordinates": { "lat": 51.3317584, "lng": 3.8177581 },
+      "osmWay": 1184744248
+    },
+    {
+      "id": "buitenhaven-westsluis",
+      "label": "Buitenhaven Westsluis",
+      "road": "Buitenhaven",
+      "coordinates": { "lat": 51.3296979, "lng": 3.8160315 },
+      "osmWay": 7614690
+    },
+    {
+      "id": "buitenhaven-zuid",
+      "label": "Buitenhaven zuid",
+      "road": "Buitenhaven",
+      "coordinates": { "lat": 51.3267682, "lng": 3.818358 },
+      "osmWay": 7614035
+    }
+  ]
+}

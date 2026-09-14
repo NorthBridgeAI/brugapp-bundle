@@ -1,0 +1,257 @@
+{
+  "type": "FeatureCollection",
+  "name": "bridges-rws",
+  "groundTruth": true,
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "source": {
+    "name": "Rijkswaterstaat Vaarwegen (FIS/VNDS) OGC API Features",
+    "url": "https://geo.rijkswaterstaat.nl/services/ogc/gdr/fis_vnds/ogc/features/v1",
+    "license": "Rijkswaterstaat open data (publieke OGC API)",
+    "retrievedAt": "2026-09-14T08:58:37Z",
+    "note": "Collections sluis_v, sluiskolk_v, brug, isrs_object. Polygon/point geometry as published; attributes length/width used where present."
+  },
+  "generatedAt": "2026-09-14T08:58:37Z",
+  "featureCount": 6,
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "oostsluis-buitenhoofd",
+        "lockId": "oostsluis",
+        "end": "buitenhoofd",
+        "compass": "north",
+        "ndwIsrs": "NLTNZ130B20497800009",
+        "a2CorroborationId": "buitenhaven-noord",
+        "officialName": "Brug over buitenhoofd Oostsluis Terneuzen",
+        "kind": "bridge",
+        "canOpen_rws": "Yes",
+        "condition": "CONSTRUCTED",
+        "numberOfOpenings": 1,
+        "rotation": -84,
+        "lengthM_attr": null,
+        "widthM_attr": null,
+        "rwsId": 13626,
+        "isrsId": 9064504,
+        "vinCode": "4978",
+        "relatedComplex": "Terneuzen",
+        "coordinates": {
+          "lng": 3.8198,
+          "lat": 51.3361
+        },
+        "rwsCollection": "brug",
+        "geometryRole": "RWS point (no official length/width on this collection)",
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8198,
+          51.3361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "westsluis-noord",
+        "lockId": "westsluis",
+        "end": "noord",
+        "compass": "north",
+        "ndwIsrs": null,
+        "a2CorroborationId": "buitenhaven-westsluis",
+        "officialName": "Noordbrug over Westsluis Terneuzen",
+        "kind": "bridge",
+        "canOpen_rws": "Yes",
+        "condition": "CONSTRUCTED",
+        "numberOfOpenings": 1,
+        "rotation": -65,
+        "lengthM_attr": null,
+        "widthM_attr": null,
+        "rwsId": 18134,
+        "isrsId": 9064450,
+        "vinCode": "5226",
+        "relatedComplex": "Terneuzen",
+        "coordinates": {
+          "lng": 3.816,
+          "lat": 51.3297
+        },
+        "rwsCollection": "brug",
+        "geometryRole": "RWS point (no official length/width on this collection)",
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.816,
+          51.3297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "westsluis-zuid",
+        "lockId": "westsluis",
+        "end": "zuid",
+        "compass": "south",
+        "ndwIsrs": null,
+        "a2CorroborationId": "buitenhaven-zuid",
+        "officialName": "Zuidbrug Westsluis Terneuzen",
+        "kind": "bridge",
+        "canOpen_rws": "Yes",
+        "condition": "CONSTRUCTED",
+        "numberOfOpenings": 1,
+        "rotation": 0.0,
+        "lengthM_attr": null,
+        "widthM_attr": null,
+        "rwsId": 46967,
+        "isrsId": 9064446,
+        "vinCode": "5224",
+        "relatedComplex": "Terneuzen",
+        "coordinates": {
+          "lng": 3.8183,
+          "lat": 51.3268
+        },
+        "rwsCollection": "brug",
+        "geometryRole": "RWS point (no official length/width on this collection)",
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8183,
+          51.3268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "oostsluis-binnenhoofd",
+        "lockId": "oostsluis",
+        "end": "binnenhoofd",
+        "compass": "south",
+        "ndwIsrs": "NLTNZ130B20497600005",
+        "a2CorroborationId": "buitenhaven-oostsluis",
+        "officialName": "Brug over binnenhoofd Oostsluis Terneuzen",
+        "kind": "bridge",
+        "canOpen_rws": "Yes",
+        "condition": "CONSTRUCTED",
+        "numberOfOpenings": 1,
+        "rotation": -84,
+        "lengthM_attr": null,
+        "widthM_attr": null,
+        "rwsId": 57806,
+        "isrsId": 9064499,
+        "vinCode": "4976",
+        "relatedComplex": "Terneuzen",
+        "coordinates": {
+          "lng": 3.8204,
+          "lat": 51.333
+        },
+        "rwsCollection": "brug",
+        "geometryRole": "RWS point (no official length/width on this collection)",
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8204,
+          51.333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nieuwe-sluis-binnenhoofd",
+        "lockId": "nieuwe-sluis",
+        "end": "binnenhoofd",
+        "compass": "south",
+        "ndwIsrs": null,
+        "a2CorroborationId": null,
+        "a2Note": "Missing from A2 OSM span set.",
+        "officialName": "Brug over binnenhoofd Nieuwe Sluis Terneuzen",
+        "kind": "bridge",
+        "canOpen_rws": "No",
+        "condition": "CONSTRUCTED",
+        "numberOfOpenings": 1,
+        "rotation": 90,
+        "lengthM_attr": null,
+        "widthM_attr": null,
+        "rwsId": 43039781,
+        "isrsId": 43069470,
+        "vinCode": "65146054",
+        "relatedComplex": "Terneuzen",
+        "coordinates": {
+          "lng": 3.8203,
+          "lat": 51.3273
+        },
+        "rwsCollection": "brug",
+        "geometryRole": "RWS point (no official length/width on this collection)",
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8203,
+          51.3273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nieuwe-sluis-buitenhoofd",
+        "lockId": "nieuwe-sluis",
+        "end": "buitenhoofd",
+        "compass": "north",
+        "ndwIsrs": null,
+        "a2CorroborationId": "buitenhaven-midden",
+        "a2Note": "A2 OSM span 'buitenhaven-midden' is near this bridge; not a third operational lock.",
+        "officialName": "Brug over buitenhoofd Nieuwe Sluis Terneuzen",
+        "kind": "bridge",
+        "canOpen_rws": "No",
+        "condition": "CONSTRUCTED",
+        "numberOfOpenings": 1,
+        "rotation": 90,
+        "lengthM_attr": null,
+        "widthM_attr": null,
+        "rwsId": 43039810,
+        "isrsId": 43069475,
+        "vinCode": "65146055",
+        "relatedComplex": "Terneuzen",
+        "coordinates": {
+          "lng": 3.8176,
+          "lat": 51.3317
+        },
+        "rwsCollection": "brug",
+        "geometryRole": "RWS point (no official length/width on this collection)",
+        "_source": "rws_fis",
+        "_retrievedAt": "2026-09-14T08:58:37Z"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.8176,
+          51.3317
+        ]
+      }
+    }
+  ],
+  "ndwMapping": {
+    "NLTNZ130B20497800009": "oostsluis-buitenhoofd",
+    "NLTNZ130B20497600005": "oostsluis-binnenhoofd"
+  },
+  "note": "RWS brug is point geometry. Deck polygons come from BGT overbruggingsdeel. canOpen_rws=No on Nieuwe Sluis brgare records; doorvaartopening ISRS still exist (see isrs-rws.geojson)."
+}
