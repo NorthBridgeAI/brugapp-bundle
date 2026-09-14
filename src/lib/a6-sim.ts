@@ -31,8 +31,10 @@ export const A6_FILL: Record<A3Paint, string> = {
 
 export const A6_TOKEN = {
   selected: "#22d3ee",
-  route: "#5ee9a0",
-  routeGlow: "#22d3ee",
+  route: "#3dff88",
+  routeGlow: "#5fffd0",
+  closed: "#e11d48",
+  closedGlow: "#fb7185",
   roadNormal: "#6b7c8c",
   roadImportant: "#9aa8b5",
   water: "#083d57",
@@ -113,4 +115,40 @@ export function closedDeckCopy(paints: Record<A3BridgeId, A3Paint>): string {
   if (closed.length === 1) return `${closed[0]} is momenteel dicht.`;
   if (closed.length === 2) return `${closed[0]} en ${closed[1]} zijn momenteel dicht.`;
   return `${closed.slice(0, -1).join(", ")} en ${closed[closed.length - 1]} zijn momenteel dicht.`;
+}
+
+function lockIdOfBridge(id: A3BridgeId): "westsluis" | "nieuwe-sluis" | "oostsluis" {
+  if (id.startsWith("oost")) return "oostsluis";
+  if (id.startsWith("west")) return "westsluis";
+  return "nieuwe-sluis";
+}
+
+/** Consumer line under AANBEVOLEN ROUTE. Names the confirmed corridor, not a travel time. */
+export function recommendedViaLabel(via: readonly A3BridgeId[]): string {
+  if (via.includes("nieuwe-sluis-buitenhoofd") || via.includes("nieuwe-sluis-binnenhoofd")) {
+    return "Via Nieuwe Sluis noord";
+  }
+  if (via.includes("oostsluis-buitenhoofd") || via.includes("oostsluis-binnenhoofd")) {
+    return "Via Oostsluis";
+  }
+  if (via.includes("westsluis-noord") || via.includes("westsluis-zuid")) {
+    return "Via Westsluis";
+  }
+  return "Via bevestigde route";
+}
+
+export type A6LockEmphasis = "pop" | "dim" | "normal";
+
+/** When a route exists: problem (closed) + solution (via) pop; unrelated lock names dim. */
+export function lockEmphasis(
+  lockId: string,
+  via: readonly A3BridgeId[],
+  paints: Record<A3BridgeId, A3Paint>,
+  hasRoute: boolean,
+): A6LockEmphasis {
+  const closedHere = A3_BRIDGE_IDS.some((id) => lockIdOfBridge(id) === lockId && paints[id] === "closed");
+  const solution = via.some((id) => lockIdOfBridge(id) === lockId);
+  if (!hasRoute && !closedHere) return "normal";
+  if (closedHere || solution) return "pop";
+  return "dim";
 }

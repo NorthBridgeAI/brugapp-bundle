@@ -38,7 +38,9 @@ import {
   SIM_PAINTS,
   SIM_PAINT_LABEL,
   closedDeckCopy,
+  lockEmphasis,
   parseA6SimSearch,
+  recommendedViaLabel,
   resolveA6Route,
   simSearchString,
   type SimOverrides,
@@ -107,6 +109,24 @@ function a6Center(): LngLat {
 function a6Pitch(): number {
   if (typeof window === "undefined") return 16;
   return window.matchMedia("(max-width: 640px)").matches ? 16 : 24;
+}
+
+function unionFitBounds(route: LngLat[]): [[number, number], [number, number]] {
+  const [[west0, south0], [east0, north0]] = a6FitBounds();
+  let west = west0;
+  let south = south0;
+  let east = east0;
+  let north = north0;
+  for (const [lng, lat] of route) {
+    west = Math.min(west, lng);
+    east = Math.max(east, lng);
+    south = Math.min(south, lat);
+    north = Math.max(north, lat);
+  }
+  return [
+    [west, south],
+    [east, north],
+  ];
 }
 
 function project(lng: number, lat: number, width: number, height: number): { x: number; y: number } {
@@ -319,6 +339,18 @@ function paintStatic(map: maplibregl.Map) {
       "line-width": ["match", ["get", "paint"], "closed", 2.2, 1.1],
     },
   });
+  map.addLayer({
+    id: "a6-decks-closed-glow",
+    type: "line",
+    source: "a6-decks",
+    filter: ["==", ["get", "paint"], "closed"],
+    paint: {
+      "line-color": A6_TOKEN.closedGlow,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 9, 15, 15],
+      "line-opacity": 0.48,
+      "line-blur": 2.2,
+    },
+  });
   map.addSource("a6-selected", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
   map.addLayer({
     id: "a6-selected",
@@ -344,11 +376,28 @@ function paintStatic(map: maplibregl.Map) {
     ),
   });
   map.addLayer({
+    id: "a6-overlay-closed-glow",
+    type: "line",
+    source: "a6-overlay",
+    filter: ["==", ["get", "paint"], "closed"],
+    paint: {
+      "line-color": A6_TOKEN.closedGlow,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 12, 15, 20],
+      "line-opacity": 0.46,
+      "line-blur": 2.4,
+    },
+    layout: { "line-cap": "round", "line-join": "round" },
+  });
+  map.addLayer({
     id: "a6-overlay-closed",
     type: "line",
     source: "a6-overlay",
     filter: ["==", ["get", "paint"], "closed"],
-    paint: { "line-color": "#fb7185", "line-width": 7.5, "line-opacity": 0.98 },
+    paint: {
+      "line-color": A6_TOKEN.closedGlow,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 8, 15, 11],
+      "line-opacity": 0.98,
+    },
     layout: { "line-cap": "round", "line-join": "round" },
   });
   map.addSource("a6-route", { type: "geojson", data: routeLineGeoJSON([]) });
@@ -356,33 +405,54 @@ function paintStatic(map: maplibregl.Map) {
     id: "a6-route-glow",
     type: "line",
     source: "a6-route",
-    paint: { "line-color": A6_TOKEN.routeGlow, "line-width": 10, "line-opacity": 0.28, "line-blur": 1.4 },
+    paint: {
+      "line-color": A6_TOKEN.routeGlow,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 14, 15, 22],
+      "line-opacity": 0.42,
+      "line-blur": 2.2,
+    },
     layout: { "line-cap": "round", "line-join": "round" },
   });
   map.addLayer({
     id: "a6-route-case",
     type: "line",
     source: "a6-route",
-    paint: { "line-color": "#083344", "line-width": 8.5, "line-opacity": 0.75 },
+    paint: {
+      "line-color": "#042f2e",
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 9.5, 15, 14.5],
+      "line-opacity": 0.82,
+    },
     layout: { "line-cap": "round", "line-join": "round" },
   });
   map.addLayer({
     id: "a6-route-halo",
     type: "line",
     source: "a6-route",
-    paint: { "line-color": A6_TOKEN.routeGlow, "line-width": 6.2, "line-opacity": 0.55 },
+    paint: {
+      "line-color": A6_TOKEN.routeGlow,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 7.2, 15, 11.5],
+      "line-opacity": 0.72,
+    },
     layout: { "line-cap": "round", "line-join": "round" },
   });
   map.addLayer({
     id: "a6-route",
     type: "line",
     source: "a6-route",
-    paint: { "line-color": A6_TOKEN.route, "line-width": 3.6, "line-opacity": 0.98 },
+    paint: {
+      "line-color": A6_TOKEN.route,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 5.2, 15, 8],
+      "line-opacity": 1,
+    },
     layout: { "line-cap": "round", "line-join": "round" },
   });
 }
 
-function watchA6Size(map: maplibregl.Map, paddingOf: () => maplibregl.PaddingOptions) {
+function watchA6Size(
+  map: maplibregl.Map,
+  paddingOf: () => maplibregl.PaddingOptions,
+  routeOf: () => LngLat[],
+) {
   let touched = false;
   const mark = () => {
     touched = true;
@@ -392,13 +462,16 @@ function watchA6Size(map: maplibregl.Map, paddingOf: () => maplibregl.PaddingOpt
   canvas.addEventListener("wheel", mark, { passive: true });
   canvas.addEventListener("touchstart", mark, { passive: true });
 
-  const sync = () => {
+  const sync = (opts?: { duration?: number; ignoreTouch?: boolean }) => {
     const box = map.getContainer().getBoundingClientRect();
     if (box.width < 80 || box.height < 80) return;
     map.resize();
-    if (touched) return;
+    if (opts?.ignoreTouch) touched = false;
+    if (touched && !opts?.ignoreTouch) return;
     const phone = box.width < 640;
     const padding = paddingOf();
+    const route = routeOf();
+    const hasRoute = route.length > 1;
     const top = Math.max(52, padding.top ?? 0);
     const bottom = Math.max(72, padding.bottom ?? 0);
     const left = Math.max(10, padding.left ?? 0);
@@ -413,12 +486,12 @@ function watchA6Size(map: maplibregl.Map, paddingOf: () => maplibregl.PaddingOpt
       });
       return;
     }
-    map.fitBounds(a6FitBounds(), {
+    map.fitBounds(unionFitBounds(route), {
       padding: { top, bottom, left, right },
       bearing: A3_BEARING,
       pitch,
-      maxZoom: phone ? 13.7 : 14.35,
-      duration: 0,
+      maxZoom: hasRoute ? (phone ? 13.35 : 13.95) : phone ? 13.7 : 14.35,
+      duration: opts?.duration ?? 0,
     });
   };
 
@@ -431,6 +504,7 @@ function watchA6Size(map: maplibregl.Map, paddingOf: () => maplibregl.PaddingOpt
 
   return {
     refit: sync,
+    frameRoute: () => sync({ duration: 700, ignoreTouch: true }),
     disconnect: () => {
       window.cancelAnimationFrame(frame);
       observer.disconnect();
@@ -444,6 +518,7 @@ function watchA6Size(map: maplibregl.Map, paddingOf: () => maplibregl.PaddingOpt
 function FallbackSvg({
   paints,
   route,
+  via,
   overlays,
   pick,
   onPickBridge,
@@ -451,6 +526,7 @@ function FallbackSvg({
 }: {
   paints: Record<A3BridgeId, A3Paint>;
   route: LngLat[];
+  via: readonly A3BridgeId[];
   overlays: ReturnType<typeof overlayLineGeoJSON>;
   pick: PickKind;
   onPickBridge: (id: A3BridgeId) => void;
@@ -497,31 +573,56 @@ function FallbackSvg({
             })
             .join(" ");
           return (
-            <polyline
-              key={line.properties.id}
-              points={pts}
-              fill="none"
-              stroke="#fb7185"
-              strokeWidth={6}
-              strokeLinecap="round"
-            />
+            <g key={line.properties.id}>
+              <polyline
+                points={pts}
+                fill="none"
+                stroke={A6_TOKEN.closedGlow}
+                strokeWidth={14}
+                strokeLinecap="round"
+                opacity="0.38"
+              />
+              <polyline
+                points={pts}
+                fill="none"
+                stroke={A6_TOKEN.closedGlow}
+                strokeWidth={8}
+                strokeLinecap="round"
+              />
+            </g>
           );
         })}
         {route.length > 1 ? (
-          <polyline
-            points={route
-              .map(([lng, lat]) => {
-                const p = project(lng, lat, width, height);
-                return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
-              })
-              .join(" ")}
-            fill="none"
-            stroke="#4ade80"
-            strokeWidth="5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            opacity="0.94"
-          />
+          <>
+            <polyline
+              points={route
+                .map(([lng, lat]) => {
+                  const p = project(lng, lat, width, height);
+                  return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+                })
+                .join(" ")}
+              fill="none"
+              stroke={A6_TOKEN.routeGlow}
+              strokeWidth="16"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity="0.38"
+            />
+            <polyline
+              points={route
+                .map(([lng, lat]) => {
+                  const p = project(lng, lat, width, height);
+                  return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+                })
+                .join(" ")}
+              fill="none"
+              stroke={A6_TOKEN.route}
+              strokeWidth="8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity="1"
+            />
+          </>
         ) : null}
         {lockLabelPoints().map((lock) => {
           const layout = A6_LOCK_LAYOUT[lock.id] ?? { lng: 0, lat: 0, transform: "translate(-50%, -50%)" };
@@ -529,17 +630,27 @@ function FallbackSvg({
           const selected = pick?.kind === "lock" && pick.id === lock.id;
           const name = LOCK_LABEL[lock.id] ?? lock.full.toUpperCase();
           const anchor = lock.id === "westsluis" ? "end" : lock.id === "oostsluis" ? "start" : "middle";
+          const emphasis = lockEmphasis(lock.id, via, paints, route.length > 1);
+          const problem =
+            emphasis === "pop" &&
+            Object.entries(paints).some(([id, paint]) => {
+              if (paint !== "closed") return false;
+              if (lock.id === "oostsluis") return id.startsWith("oost");
+              if (lock.id === "westsluis") return id.startsWith("west");
+              return id.startsWith("nieuwe");
+            });
           return (
             <text
               key={lock.id}
               x={p.x}
               y={p.y + 4}
               textAnchor={anchor}
-              fill={selected ? A6_TOKEN.selected : "#f8fafc"}
-              fontSize="11"
-              fontWeight="700"
+              fill={selected ? A6_TOKEN.selected : problem ? A6_TOKEN.closedGlow : emphasis === "pop" ? A6_TOKEN.route : "#f8fafc"}
+              fontSize={emphasis === "pop" ? "12" : "11"}
+              fontWeight={emphasis === "pop" ? "800" : "700"}
               letterSpacing="1.4"
               fontFamily="ui-sans-serif, system-ui"
+              opacity={emphasis === "dim" ? 0.32 : 1}
               onClick={() => onPickLock(lock.id)}
               style={{ cursor: "pointer" }}
             >
@@ -580,6 +691,8 @@ export function DraftA6Map({
   const pickRef = useRef<(next: PickKind) => void>(() => undefined);
   const padRef = useRef({ top: 72, bottom: 92, left: 12, right: 12 });
   const refitRef = useRef<() => void>(() => undefined);
+  const frameRouteRef = useRef<() => void>(() => undefined);
+  const routeCoordsRef = useRef<LngLat[]>([]);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
   const [webglOk, setWebglOk] = useState(true);
@@ -588,6 +701,7 @@ export function DraftA6Map({
   const [chromePad, setChromePad] = useState(padRef.current);
   pickRef.current = setPick;
   padRef.current = chromePad;
+  routeCoordsRef.current = hasRoute ? route.coordinates : [];
 
   useEffect(() => {
     const parsed = parseA6SimSearch(window.location.search);
@@ -651,8 +765,13 @@ export function DraftA6Map({
         setFailed(true);
       }
     });
-    const watch = watchA6Size(map, () => padRef.current);
+    const watch = watchA6Size(
+      map,
+      () => padRef.current,
+      () => routeCoordsRef.current,
+    );
     refitRef.current = watch.refit;
+    frameRouteRef.current = watch.frameRoute;
     map.on("load", () => {
       window.clearTimeout(timeout);
       paintStatic(map);
@@ -731,13 +850,30 @@ export function DraftA6Map({
       const selected = pick?.kind === "lock" && pick.id === lock.id;
       const name = LOCK_LABEL[lock.id] ?? lock.full.toUpperCase();
       const layout = A6_LOCK_LAYOUT[lock.id] ?? { lng: 0, lat: 0, transform: "translate(-50%, -50%)" };
-      const ring = selected ? A6_TOKEN.selected : "rgba(248,250,252,0.28)";
+      const emphasis = lockEmphasis(lock.id, route.via, route.paints, hasRoute);
+      const problem =
+        emphasis === "pop" &&
+        Object.entries(route.paints).some(([id, paint]) => {
+          if (paint !== "closed") return false;
+          if (lock.id === "oostsluis") return id.startsWith("oost");
+          if (lock.id === "westsluis") return id.startsWith("west");
+          return id.startsWith("nieuwe");
+        });
+      const ring = selected
+        ? A6_TOKEN.selected
+        : problem
+          ? A6_TOKEN.closedGlow
+          : emphasis === "pop"
+            ? A6_TOKEN.route
+            : "rgba(248,250,252,0.22)";
+      const opacity = emphasis === "dim" ? "0.32" : "1";
+      const weight = emphasis === "pop" ? "800" : "700";
       next.push(
         new maplibregl.Marker({
           element: makeHtmlLabel({
-            html: `<span style="transform:${layout.transform};display:inline-block;padding:4px 8px;border-radius:6px;background:#020617cc;color:#f8fafc;border:1px solid ${ring};font:700 11px/1.05 ui-sans-serif,system-ui,sans-serif;letter-spacing:0.14em;white-space:nowrap;text-shadow:0 1px 2px #000">${name}</span>`,
+            html: `<span style="transform:${layout.transform};display:inline-block;padding:4px 8px;border-radius:6px;background:#020617cc;color:${problem ? A6_TOKEN.closedGlow : "#f8fafc"};border:1px solid ${ring};font:${weight} 11px/1.05 ui-sans-serif,system-ui,sans-serif;letter-spacing:0.14em;white-space:nowrap;text-shadow:0 1px 2px #000;opacity:${opacity}">${name}</span>`,
             onClick: () => setPick({ kind: "lock", id: lock.id }),
-            z: 4,
+            z: emphasis === "pop" ? 6 : 4,
           }),
           anchor: "center",
         })
@@ -746,7 +882,7 @@ export function DraftA6Map({
       );
     }
     markers.current = next;
-  }, [pick, ready]);
+  }, [pick, ready, route.via, route.paints, hasRoute]);
 
   useEffect(() => {
     const header = hudRef.current;
@@ -774,7 +910,7 @@ export function DraftA6Map({
       observer.disconnect();
       window.removeEventListener("resize", sync);
     };
-  }, [route.advice.title, pick, infoOpen, debug, simOpen, route.simulated]);
+  }, [route.advice.title, pick, infoOpen, debug, simOpen, route.simulated, hasRoute]);
 
   const banner =
     route.advice.tone === "closed"
@@ -783,7 +919,7 @@ export function DraftA6Map({
         ? "border-emerald-400/70 bg-emerald-950/90 text-emerald-50"
         : "border-white/20 bg-slate-950/92 text-slate-100";
 
-  const cardBody = cardCopy(pick, route.paints, route.advice, debug, route.simulated, route.staleIds);
+  const cardBody = cardCopy(pick, route.paints, route.advice, debug, route.simulated, route.staleIds, route.via);
 
   const setSim = (id: A3BridgeId, value: SimPaint | null) => {
     setOverrides((prev) => {
@@ -794,7 +930,7 @@ export function DraftA6Map({
     });
   };
 
-  const flyHome = () => refitRef.current();
+  const flyHome = () => frameRouteRef.current();
   const flyMe = () => {
     if (!navigator.geolocation || !mapRef.current) return;
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -822,6 +958,7 @@ export function DraftA6Map({
           <FallbackSvg
             paints={route.paints}
             route={route.advice.showRoute ? route.coordinates : []}
+            via={route.via}
             overlays={overlays}
             pick={pick}
             onPickBridge={(id) => setPick({ kind: "bridge", id })}
@@ -885,7 +1022,7 @@ export function DraftA6Map({
               <ul className="flex flex-wrap gap-x-3 gap-y-1 font-medium text-slate-100">
                 <li className="inline-flex items-center gap-1.5">
                   <span className="size-2.5 rounded-full" style={{ background: A6_TOKEN.route }} aria-hidden />
-                  Bevestigde route
+                  Aanbevolen route
                 </li>
                 <li className="inline-flex items-center gap-1.5">
                   <span className="size-2.5 rounded-full" style={{ background: A6_FILL.closed }} aria-hidden />
@@ -901,7 +1038,7 @@ export function DraftA6Map({
                 </li>
               </ul>
               <p className="mt-1.5 text-slate-300" title={catalog.status.disclaimer}>
-                Groen = bevestigde route. Rood = dicht dek. Leigrijs = geen live data. Op afroep. {catalog.status.disclaimer}
+                Groen = aanbevolen route. Rood = dicht dek. Leigrijs = geen live data. Op afroep. {catalog.status.disclaimer}
               </p>
             </div>
           </div>
@@ -973,7 +1110,14 @@ export function DraftA6Map({
                 {cardBody.kicker}
               </p>
               <p className="text-[13px] font-semibold leading-tight sm:text-sm">{cardBody.title}</p>
-              <p className="mt-0.5 text-[11px] leading-4 text-current/90">{cardBody.detail}</p>
+              {cardBody.openBadge ? (
+                <p className="mt-1 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#4ade80]">
+                  <span className="inline-block size-2 rounded-full bg-[#4ade80] shadow-[0_0_8px_#4ade80]" aria-hidden />
+                  OPEN
+                </p>
+              ) : (
+                <p className="mt-0.5 text-[11px] leading-4 text-current/90">{cardBody.detail}</p>
+              )}
               {cardBody.isrs ? (
                 <p className="mt-0.5 font-mono text-[10px] text-current/70">{cardBody.isrs}</p>
               ) : null}
@@ -986,6 +1130,14 @@ export function DraftA6Map({
                 aria-label="Sluit selectie"
               >
                 <X className="size-4" />
+              </button>
+            ) : cardBody.frameRoute ? (
+              <button
+                type="button"
+                onClick={() => frameRouteRef.current()}
+                className="shrink-0 self-center rounded-md border border-current/25 bg-black/20 px-2.5 py-1.5 text-[11px] font-semibold"
+              >
+                Bekijk route
               </button>
             ) : (
               <button
@@ -1042,7 +1194,8 @@ function cardCopy(
   debug: boolean,
   _simulated: boolean,
   staleIds: A3BridgeId[],
-): { kicker: string; title: string; detail: string; isrs?: string } {
+  via: readonly A3BridgeId[],
+): { kicker: string; title: string; detail: string; isrs?: string; openBadge?: boolean; frameRoute?: boolean } {
   if (pick?.kind === "bridge") {
     const copy = A3_BRIDGE_COPY[pick.id];
     const paint = paints[pick.id];
@@ -1066,13 +1219,13 @@ function cardCopy(
     const hit = locks[pick.id] ?? { title: pick.id, detail: "Sluis." };
     return { kicker: "Sluis", ...hit };
   }
-  if (advice.tone === "open") {
+  if (advice.tone === "open" && advice.showRoute) {
     return {
-      kicker: "Bevestigde route",
-      title: advice.title,
-      detail: advice.caution
-        ? "Live bevestigd. NDW verwacht een opening — reken op oponthoud."
-        : "Live bevestigd. Volg de groene route.",
+      kicker: "Aanbevolen route",
+      title: recommendedViaLabel(via),
+      detail: "",
+      openBadge: true,
+      frameRoute: true,
     };
   }
   if (advice.tone === "closed") {

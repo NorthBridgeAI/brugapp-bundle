@@ -9,7 +9,9 @@ import {
   SCENARIO_OOST_Z,
   SCENARIO_UNKNOWN,
   closedDeckCopy,
+  lockEmphasis,
   parseA6SimSearch,
+  recommendedViaLabel,
   resolveA6Route,
 } from "./a6-sim";
 import type { LiveSnapshot } from "./types";
@@ -138,5 +140,18 @@ describe("A6 client-only simulation", () => {
     const paints = emptyPaints();
     paints["oostsluis-binnenhoofd"] = "closed";
     assert.equal(closedDeckCopy(paints), "Oostsluis zuid is momenteel dicht.");
+  });
+
+  it("QA B card names the Nieuwe N corridor without a fake travel time", () => {
+    const result = resolveA6Route(live("wait", "wait"), SCENARIO_OOST_Z);
+    assert.equal(recommendedViaLabel(result.via), "Via Nieuwe Sluis noord");
+    assert.equal(lockEmphasis("oostsluis", result.via, result.paints, true), "pop");
+    assert.equal(lockEmphasis("nieuwe-sluis", result.via, result.paints, true), "pop");
+    assert.equal(lockEmphasis("westsluis", result.via, result.paints, true), "dim");
+  });
+
+  it("QA C card names the Oost corridor", () => {
+    const result = resolveA6Route(live("clear", "clear"), SCENARIO_ALL_OPEN);
+    assert.equal(recommendedViaLabel(result.via), "Via Oostsluis");
   });
 });
