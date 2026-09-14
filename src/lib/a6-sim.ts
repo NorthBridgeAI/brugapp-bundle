@@ -137,6 +137,32 @@ export function recommendedViaLabel(via: readonly A3BridgeId[]): string {
   return "Via bevestigde route";
 }
 
+export type A6GeoState = "idle" | "locating" | "shown" | "denied" | "unavailable" | "outside";
+
+export function a6GeoCopy(state: A6GeoState): string | null {
+  switch (state) {
+    case "locating":
+      return "Locatie ophalen…";
+    case "denied":
+      return "Locatie geweigerd. Sta toegang toe in de browser om je positie te zien.";
+    case "unavailable":
+      return "Locatie is nu niet beschikbaar.";
+    case "outside":
+      return "Je bent buiten het kaartgebied van de sluizen.";
+    default:
+      return null;
+  }
+}
+
+export function a6PointInMaxBounds(
+  lng: number,
+  lat: number,
+  bounds: [[number, number], [number, number]],
+): boolean {
+  const [[west, south], [east, north]] = bounds;
+  return lng >= west && lng <= east && lat >= south && lat <= north;
+}
+
 export type A6LockEmphasis = "pop" | "dim" | "normal";
 
 /** When a route exists: problem (closed) + solution (via) pop; unrelated lock names dim. */

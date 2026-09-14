@@ -8,6 +8,8 @@ import {
   SCENARIO_ALL_OPEN,
   SCENARIO_OOST_Z,
   SCENARIO_UNKNOWN,
+  a6GeoCopy,
+  a6PointInMaxBounds,
   closedDeckCopy,
   lockEmphasis,
   parseA6SimSearch,
@@ -153,5 +155,15 @@ describe("A6 client-only simulation", () => {
   it("QA C card names the Oost corridor", () => {
     const result = resolveA6Route(live("clear", "clear"), SCENARIO_ALL_OPEN);
     assert.equal(recommendedViaLabel(result.via), "Via Oostsluis");
+  });
+
+  it("GPS copy never invents a location", () => {
+    assert.equal(a6GeoCopy("idle"), null);
+    assert.equal(a6GeoCopy("shown"), null);
+    assert.equal(a6GeoCopy("denied"), "Locatie geweigerd. Sta toegang toe in de browser om je positie te zien.");
+    assert.equal(a6GeoCopy("unavailable"), "Locatie is nu niet beschikbaar.");
+    assert.equal(a6GeoCopy("outside"), "Je bent buiten het kaartgebied van de sluizen.");
+    assert.equal(a6PointInMaxBounds(3.82, 51.33, [[3.8, 51.32], [3.84, 51.34]]), true);
+    assert.equal(a6PointInMaxBounds(4.5, 52.1, [[3.8, 51.32], [3.84, 51.34]]), false);
   });
 });

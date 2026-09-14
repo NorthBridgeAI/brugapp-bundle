@@ -37,12 +37,15 @@ import {
   SCENARIO_UNKNOWN,
   SIM_PAINTS,
   SIM_PAINT_LABEL,
+  a6GeoCopy,
+  a6PointInMaxBounds,
   closedDeckCopy,
   lockEmphasis,
   parseA6SimSearch,
   recommendedViaLabel,
   resolveA6Route,
   simSearchString,
+  type A6GeoState,
   type SimOverrides,
   type SimPaint,
 } from "@/lib/a6-sim";
@@ -65,9 +68,14 @@ const LOCK_LABEL: Record<string, string> = {
   oostsluis: "OOSTSLUIS",
 };
 
-/** Pixel-free geographic nudges so WEST / NIEUWE never collide. Geometry itself is unchanged. */
-const A6_LOCK_LAYOUT: Record<string, { lng: number; lat: number; transform: string }> = {
-  westsluis: { lng: -0.00012, lat: 0.00022, transform: "translate(-8%, -48%)" },
+/** Pixel-free geographic nudges so WEST / NIEUWE never collide. Geometry itself is unchanged.
+ * WEST uses a left anchor so the pill grows inward (east), never off the 390px edge.
+ */
+const A6_LOCK_LAYOUT: Record<
+  string,
+  { lng: number; lat: number; transform: string; anchor?: "center" | "left" | "right" }
+> = {
+  westsluis: { lng: 0.0001, lat: 0.00016, transform: "translate(8px, -50%)", anchor: "left" },
   "nieuwe-sluis": { lng: 0.00008, lat: -0.00112, transform: "translate(-50%, 8%)" },
   oostsluis: { lng: 0.0007, lat: 0.00018, transform: "translate(4%, -50%)" },
 };
@@ -748,6 +756,7 @@ export function DraftA6Map({
   const cardRef = useRef<HTMLElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const markers = useRef<maplibregl.Marker[]>([]);
+  const geoMarkerRef = useRef<maplibregl.Marker | null>(null);
   const pickRef = useRef<(next: PickKind) => void>(() => undefined);
   const padRef = useRef({ top: 72, bottom: 92, left: 12, right: 12 });
   const refitRef = useRef<() => void>(() => undefined);
@@ -758,6 +767,7 @@ export function DraftA6Map({
   const [webglOk, setWebglOk] = useState(true);
   const [pick, setPick] = useState<PickKind>(null);
   const [infoOpen, setInfoOpen] = useState(false);
+  const [geoState, setGeoState] = useState<A6GeoState>("idle");
   const [chromePad, setChromePad] = useState(padRef.current);
   pickRef.current = setPick;
   padRef.current = chromePad;
@@ -864,6 +874,8 @@ export function DraftA6Map({
     return () => {
       markers.current.forEach((marker) => marker.remove());
       markers.current = [];
+      geoMarkerRef.current?.remove();
+      geoMarkerRef.current = null;
       window.clearTimeout(timeout);
       window.removeEventListener("error", onWindowError);
       watch.disconnect();
@@ -937,7 +949,7 @@ export function DraftA6Map({
             onClick: () => setPick({ kind: "lock", id: lock.id }),
             z: emphasis === "pop" ? 6 : 4,
           }),
-          anchor: "center",
+          anchor: layout.anchor ?? "center",
         })
           .setLngLat([lock.lng + layout.lng, lock.lat + layout.lat])
           .addTo(map),
@@ -956,8 +968,8 @@ export function DraftA6Map({
       const next = {
         top: Math.ceil(top + 6),
         bottom: Math.ceil(bottom + 8),
-        left: phone ? 18 : 40,
-        right: phone ? 8 : 40,
+        left: phone ? 16 : 20,
+        right: phone ? 12 : 20,
       };
       padRef.current = next;
       setChromePad(next);
@@ -972,7 +984,7 @@ export function DraftA6Map({
       observer.disconnect();
       window.removeEventListener("resize", sync);
     };
-  }, [route.advice.title, pick, infoOpen, debug, simOpen, route.simulated, hasRoute]);
+  }, [route.advice.title, pick, infoOpen, debug, simOpen, route.simulated, hasRoute, geoState]);
 
   const banner =
     route.advice.tone === "closed"
@@ -994,18 +1006,59 @@ export function DraftA6Map({
 
   const flyHome = () => frameRouteRef.current();
   const flyMe = () => {
-    if (!navigator.geolocation || !mapRef.current) return;
-    navigator.geolocation.getCurrentPosition((pos) => {
-      mapRef.current?.flyTo({
-        center: [pos.coords.longitude, pos.coords.latitude],
-        zoom: 14.2,
-        duration: 800,
-      });
-    });
+    const map = mapRef.current;
+    const canGeo =
+      typeof navigator !== "undefined" &&
+      Boolean(navigator.geolocation) &&
+      (typeof window === "undefined" || window.isSecureContext);
+    if (!canGeo) {
+      setGeoState("unavailable");
+      return;
+    }
+    if (!map) {
+      setGeoState("unavailable");
+      return;
+    }
+    setGeoState("locating");
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const lng = pos.coords.longitude;
+        const lat = pos.coords.latitude;
+        if (!a6PointInMaxBounds(lng, lat, a3MaxBounds())) {
+          geoMarkerRef.current?.remove();
+          geoMarkerRef.current = null;
+          setGeoState("outside");
+          return;
+        }
+        setGeoState("shown");
+        geoMarkerRef.current?.remove();
+        geoMarkerRef.current = new maplibregl.Marker({
+          element: makeHtmlLabel({
+            html: `<span style="display:block;width:16px;height:16px;border-radius:50%;background:#38bdf8;border:2px solid #f8fafc;box-shadow:0 0 0 6px rgba(56,189,248,0.35)" title="Jouw locatie"></span>`,
+            z: 8,
+          }),
+          anchor: "center",
+        })
+          .setLngLat([lng, lat])
+          .addTo(map);
+        map.flyTo({ center: [lng, lat], zoom: 14.2, duration: 800 });
+      },
+      (err) => {
+        geoMarkerRef.current?.remove();
+        geoMarkerRef.current = null;
+        setGeoState(err.code === 1 ? "denied" : "unavailable");
+      },
+      { enableHighAccuracy: true, timeout: 12_000, maximumAge: 15_000 },
+    );
   };
+  const geoCopy = a6GeoCopy(geoState);
 
   return (
     <div className="fixed inset-0 z-50 bg-[#071018] text-slate-100">
+      <div
+        className="relative mx-auto h-full w-full max-w-3xl xl:max-w-4xl sm:border-x sm:border-white/10"
+        data-testid="a6-map-stage"
+      >
       <div ref={container} className="absolute inset-0 h-full w-full" data-testid="a6-map" />
       {(!webglOk || !ready) && (
         <div
@@ -1030,7 +1083,7 @@ export function DraftA6Map({
       )}
       <header ref={hudRef} className="pointer-events-none absolute inset-x-0 top-0 z-20" data-testid="a6-top-hud">
         {debug ? (
-          <div className="pointer-events-auto mx-auto w-full max-w-xl px-2 pt-[max(0.3rem,env(safe-area-inset-top))] sm:px-4" data-testid="a6-sim-banner">
+          <div className="pointer-events-auto mx-auto w-full px-2 pt-[max(0.3rem,env(safe-area-inset-top))] sm:px-4" data-testid="a6-sim-banner">
             <div className="flex items-center justify-between gap-2 rounded-md border border-amber-400/70 bg-amber-950/95 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-amber-50">
               <span>SIMULATION MODE</span>
               <span className="truncate font-normal text-amber-100/80">alleen deze pagina</span>
@@ -1039,7 +1092,7 @@ export function DraftA6Map({
         ) : null}
         <div
           className={cn(
-            "pointer-events-auto mx-auto flex w-full max-w-xl items-center justify-between gap-2 px-2 sm:px-4",
+            "pointer-events-auto mx-auto flex w-full items-center justify-between gap-2 px-2 sm:px-4",
             debug ? "pt-1" : "pt-[max(0.35rem,env(safe-area-inset-top))] sm:pt-3",
           )}
         >
@@ -1079,7 +1132,7 @@ export function DraftA6Map({
           </div>
         </div>
         {infoOpen ? (
-          <div id="a6-info-panel" className="pointer-events-auto mx-auto mt-1 w-full max-w-xl px-2 sm:px-4" data-testid="a6-info-panel">
+          <div id="a6-info-panel" className="pointer-events-auto mx-auto mt-1 w-full px-2 sm:px-4" data-testid="a6-info-panel">
             <div className="rounded-lg border border-white/15 bg-slate-950/92 px-3 py-2 text-[12px] leading-4 text-slate-200 backdrop-blur-md">
               <ul className="flex flex-wrap gap-x-3 gap-y-1 font-medium text-slate-100">
                 <li className="inline-flex items-center gap-1.5">
@@ -1106,7 +1159,7 @@ export function DraftA6Map({
           </div>
         ) : null}
         {debug ? (
-          <div className="pointer-events-auto mx-auto mt-1 w-full max-w-xl px-2 sm:px-4" data-testid="a6-sim-panel">
+          <div className="pointer-events-auto mx-auto mt-1 w-full px-2 sm:px-4" data-testid="a6-sim-panel">
             <div className="rounded-lg border border-amber-400/40 bg-slate-950/95 p-1.5 text-[11px] text-amber-50 backdrop-blur-md">
               <div className="flex flex-wrap items-center gap-1">
                 <button type="button" className="rounded-md border border-white/20 px-2 py-1" onClick={() => setOverrides({ ...SCENARIO_UNKNOWN })}>
@@ -1165,7 +1218,7 @@ export function DraftA6Map({
         className="pointer-events-none absolute inset-x-0 bottom-0 z-20 px-2 pb-[max(0.55rem,env(safe-area-inset-bottom))] sm:px-4 sm:pb-3"
         data-testid="a6-bottom-card"
       >
-        <div className={cn("pointer-events-auto mx-auto w-full max-w-xl rounded-xl border px-3 py-2 backdrop-blur-md transition-colors duration-300", banner)}>
+        <div className={cn("pointer-events-auto mx-auto w-full rounded-xl border px-3 py-2 backdrop-blur-md transition-colors duration-300", banner)}>
           <div className="flex items-start justify-between gap-2">
             <div className="min-w-0">
               <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-current/80">
@@ -1212,9 +1265,24 @@ export function DraftA6Map({
             )}
           </div>
         </div>
-        <div className="pointer-events-auto mx-auto mt-1.5 grid w-full max-w-xl grid-cols-3 gap-1 text-[10px] font-medium text-slate-200">
-          <button type="button" onClick={flyMe} className="inline-flex min-h-10 items-center justify-center gap-1 rounded-md bg-slate-950/70">
-            <LocateFixed className="size-3.5" /> Mijn locatie
+        {geoCopy ? (
+          <p className="pointer-events-auto mx-auto mb-1 w-full rounded-md bg-slate-950/85 px-2 py-1 text-center text-[11px] leading-4 text-amber-100" data-testid="a6-geo-msg">
+            {geoCopy}
+          </p>
+        ) : null}
+        <div className="pointer-events-auto mx-auto mt-1.5 grid w-full grid-cols-3 gap-1 text-[10px] font-medium text-slate-200">
+          <button
+            type="button"
+            onClick={flyMe}
+            disabled={geoState === "locating"}
+            aria-disabled={geoState === "locating"}
+            className={cn(
+              "inline-flex min-h-10 items-center justify-center gap-1 rounded-md bg-slate-950/70",
+              geoState === "locating" && "cursor-not-allowed opacity-50",
+            )}
+            data-testid="a6-locate"
+          >
+            <LocateFixed className="size-3.5" /> {geoState === "locating" ? "Bezig…" : "Mijn locatie"}
           </button>
           <button type="button" onClick={flyHome} className="inline-flex min-h-10 items-center justify-center gap-1 rounded-md bg-slate-950/70">
             <Map className="size-3.5" /> Volledige kaart
@@ -1245,6 +1313,7 @@ export function DraftA6Map({
           Open-tegels niet bereikbaar. Officiële geometrie blijft zichtbaar.
         </p>
       ) : null}
+      </div>
     </div>
   );
 }
