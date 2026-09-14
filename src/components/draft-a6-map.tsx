@@ -718,7 +718,7 @@ function FallbackSvg({
               fontWeight={emphasis === "pop" ? "800" : "700"}
               letterSpacing="1.4"
               fontFamily="ui-sans-serif, system-ui"
-              opacity={emphasis === "dim" ? 0.32 : 1}
+              opacity={emphasis === "dim" ? 0.72 : 1}
               onClick={() => onPickLock(lock.id)}
               style={{ cursor: "pointer" }}
             >
@@ -940,7 +940,7 @@ export function DraftA6Map({
           : emphasis === "pop"
             ? A6_TOKEN.route
             : "rgba(248,250,252,0.22)";
-      const opacity = emphasis === "dim" ? "0.32" : "1";
+      const opacity = emphasis === "dim" ? "0.72" : "1";
       const weight = emphasis === "pop" ? "800" : "700";
       next.push(
         new maplibregl.Marker({
@@ -1046,7 +1046,7 @@ export function DraftA6Map({
       (err) => {
         geoMarkerRef.current?.remove();
         geoMarkerRef.current = null;
-        setGeoState(err.code === 1 ? "denied" : "unavailable");
+        setGeoState(err.code === 1 || /den(y|ied)|permission/i.test(err.message) ? "denied" : "unavailable");
       },
       { enableHighAccuracy: true, timeout: 12_000, maximumAge: 15_000 },
     );
