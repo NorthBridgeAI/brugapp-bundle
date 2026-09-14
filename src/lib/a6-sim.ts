@@ -25,7 +25,7 @@ export type { SimOverrides, SimPaint };
 /** Calm infrastructure; never paint the whole map green. */
 export const A6_FILL: Record<A3Paint, string> = {
   open: "#9aa7b4",
-  closed: "#e11d48",
+  closed: "#ff2d55",
   "no-live-data": "#64748b",
 };
 
@@ -33,7 +33,7 @@ export const A6_TOKEN = {
   selected: "#22d3ee",
   route: "#3dff88",
   routeGlow: "#5fffd0",
-  closed: "#e11d48",
+  closed: "#ff2d55",
   closedGlow: "#fb7185",
   roadNormal: "#6b7c8c",
   roadImportant: "#9aa8b5",

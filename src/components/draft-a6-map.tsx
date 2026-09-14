@@ -67,7 +67,7 @@ const LOCK_LABEL: Record<string, string> = {
 
 /** Pixel-free geographic nudges so WEST / NIEUWE never collide. Geometry itself is unchanged. */
 const A6_LOCK_LAYOUT: Record<string, { lng: number; lat: number; transform: string }> = {
-  westsluis: { lng: -0.00072, lat: 0.00028, transform: "translate(-100%, -40%)" },
+  westsluis: { lng: -0.00012, lat: 0.00022, transform: "translate(-8%, -48%)" },
   "nieuwe-sluis": { lng: 0.00008, lat: -0.00112, transform: "translate(-50%, 8%)" },
   oostsluis: { lng: 0.0007, lat: 0.00018, transform: "translate(4%, -50%)" },
 };
@@ -95,8 +95,9 @@ const A6_STYLE: StyleSpecification = {
 function a6FitBounds(): [[number, number], [number, number]] {
   const [[west, south], [east, north]] = a3FitBounds();
   const extra = 0.00135;
+  const westPad = 0.00055;
   return [
-    [west, south - extra],
+    [west - westPad, south - extra],
     [east, north + extra],
   ];
 }
@@ -184,6 +185,26 @@ function overlayLineGeoJSON(paints: Record<A3BridgeId, A3Paint>) {
             type: "LineString" as const,
             coordinates: deckBarrier(feature.geometry.coordinates[0]),
           },
+        },
+      ];
+    }),
+  };
+}
+
+function closedHaloGeoJSON(paints: Record<A3BridgeId, A3Paint>) {
+  return {
+    type: "FeatureCollection" as const,
+    features: A3_DECKS.features.flatMap((feature) => {
+      const id = String(feature.properties.id) as A3BridgeId;
+      if ((paints[id] ?? "no-live-data") !== "closed") return [];
+      const ring = feature.geometry.coordinates[0];
+      const lng = ring.reduce((sum, point) => sum + point[0], 0) / ring.length;
+      const lat = ring.reduce((sum, point) => sum + point[1], 0) / ring.length;
+      return [
+        {
+          type: "Feature" as const,
+          properties: { id },
+          geometry: { type: "Point" as const, coordinates: [lng, lat] },
         },
       ];
     }),
@@ -327,7 +348,7 @@ function paintStatic(map: maplibregl.Map) {
         A6_FILL.closed,
         A6_FILL["no-live-data"],
       ],
-      "fill-opacity": ["match", ["get", "paint"], "closed", 0.96, "open", 0.72, 0.88],
+      "fill-opacity": ["match", ["get", "paint"], "closed", 1, "open", 0.72, 0.88],
     },
   });
   map.addLayer({
@@ -336,7 +357,7 @@ function paintStatic(map: maplibregl.Map) {
     source: "a6-decks",
     paint: {
       "line-color": ["match", ["get", "paint"], "closed", "#fecdd3", "#020617"],
-      "line-width": ["match", ["get", "paint"], "closed", 2.2, 1.1],
+      "line-width": ["match", ["get", "paint"], "closed", 2.8, 1.1],
     },
   });
   map.addLayer({
@@ -346,9 +367,9 @@ function paintStatic(map: maplibregl.Map) {
     filter: ["==", ["get", "paint"], "closed"],
     paint: {
       "line-color": A6_TOKEN.closedGlow,
-      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 9, 15, 15],
-      "line-opacity": 0.48,
-      "line-blur": 2.2,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 12, 15, 20],
+      "line-opacity": 0.58,
+      "line-blur": 2.4,
     },
   });
   map.addSource("a6-selected", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
@@ -382,9 +403,9 @@ function paintStatic(map: maplibregl.Map) {
     filter: ["==", ["get", "paint"], "closed"],
     paint: {
       "line-color": A6_TOKEN.closedGlow,
-      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 12, 15, 20],
-      "line-opacity": 0.46,
-      "line-blur": 2.4,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 16, 15, 26],
+      "line-opacity": 0.58,
+      "line-blur": 2.6,
     },
     layout: { "line-cap": "round", "line-join": "round" },
   });
@@ -395,10 +416,45 @@ function paintStatic(map: maplibregl.Map) {
     filter: ["==", ["get", "paint"], "closed"],
     paint: {
       "line-color": A6_TOKEN.closedGlow,
-      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 8, 15, 11],
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 10, 15, 14],
       "line-opacity": 0.98,
     },
     layout: { "line-cap": "round", "line-join": "round" },
+  });
+  map.addSource("a6-closed-halo", {
+    type: "geojson",
+    data: closedHaloGeoJSON(
+      empty.features.reduce(
+        (acc, feature) => {
+          acc[String(feature.properties.id) as A3BridgeId] = "no-live-data";
+          return acc;
+        },
+        {} as Record<A3BridgeId, A3Paint>,
+      ),
+    ),
+  });
+  map.addLayer({
+    id: "a6-closed-halo",
+    type: "circle",
+    source: "a6-closed-halo",
+    paint: {
+      "circle-color": A6_TOKEN.closedGlow,
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 14, 15, 20],
+      "circle-opacity": 0.42,
+      "circle-blur": 0.65,
+    },
+  });
+  map.addLayer({
+    id: "a6-closed-dot",
+    type: "circle",
+    source: "a6-closed-halo",
+    paint: {
+      "circle-color": A6_FILL.closed,
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 12, 5.5, 15, 8],
+      "circle-stroke-color": "#fecdd3",
+      "circle-stroke-width": 1.6,
+      "circle-opacity": 0.98,
+    },
   });
   map.addSource("a6-route", { type: "geojson", data: routeLineGeoJSON([]) });
   map.addLayer({
@@ -407,9 +463,9 @@ function paintStatic(map: maplibregl.Map) {
     source: "a6-route",
     paint: {
       "line-color": A6_TOKEN.routeGlow,
-      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 14, 15, 22],
-      "line-opacity": 0.42,
-      "line-blur": 2.2,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 18, 15, 28],
+      "line-opacity": 0.5,
+      "line-blur": 2.8,
     },
     layout: { "line-cap": "round", "line-join": "round" },
   });
@@ -419,7 +475,7 @@ function paintStatic(map: maplibregl.Map) {
     source: "a6-route",
     paint: {
       "line-color": "#042f2e",
-      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 9.5, 15, 14.5],
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 11.5, 15, 16.5],
       "line-opacity": 0.82,
     },
     layout: { "line-cap": "round", "line-join": "round" },
@@ -430,7 +486,7 @@ function paintStatic(map: maplibregl.Map) {
     source: "a6-route",
     paint: {
       "line-color": A6_TOKEN.routeGlow,
-      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 7.2, 15, 11.5],
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 8.6, 15, 13],
       "line-opacity": 0.72,
     },
     layout: { "line-cap": "round", "line-join": "round" },
@@ -441,7 +497,7 @@ function paintStatic(map: maplibregl.Map) {
     source: "a6-route",
     paint: {
       "line-color": A6_TOKEN.route,
-      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 5.2, 15, 8],
+      "line-width": ["interpolate", ["linear"], ["zoom"], 12, 6.8, 15, 9.4],
       "line-opacity": 1,
     },
     layout: { "line-cap": "round", "line-join": "round" },
@@ -551,18 +607,22 @@ function FallbackSvg({
             style={{ cursor: "pointer" }}
           />
         ))}
-        {decks.features.map((deck) => (
+        {decks.features.map((deck) => {
+          const paint = (deck.properties.paint as A3Paint) ?? "no-live-data";
+          const closed = paint === "closed";
+          return (
           <polygon
             key={String(deck.properties.id)}
             points={ringPoints(deck.geometry.coordinates[0], width, height)}
-            fill={A6_FILL[(deck.properties.paint as A3Paint) ?? "no-live-data"]}
-            fillOpacity="0.92"
-            stroke="#020617"
-            strokeWidth="1.4"
+            fill={A6_FILL[paint]}
+            fillOpacity={closed ? 1 : 0.92}
+            stroke={closed ? "#fecdd3" : "#020617"}
+            strokeWidth={closed ? 2.2 : 1.4}
             onClick={() => onPickBridge(String(deck.properties.id) as A3BridgeId)}
             style={{ cursor: "pointer" }}
           />
-        ))}
+          );
+        })}
         {overlays.features
           .filter((line) => line.properties.paint === "closed")
           .map((line) => {
@@ -578,15 +638,15 @@ function FallbackSvg({
                 points={pts}
                 fill="none"
                 stroke={A6_TOKEN.closedGlow}
-                strokeWidth={14}
+                strokeWidth={18}
                 strokeLinecap="round"
-                opacity="0.38"
+                opacity="0.42"
               />
               <polyline
                 points={pts}
                 fill="none"
                 stroke={A6_TOKEN.closedGlow}
-                strokeWidth={8}
+                strokeWidth={10}
                 strokeLinecap="round"
               />
             </g>
@@ -603,10 +663,10 @@ function FallbackSvg({
                 .join(" ")}
               fill="none"
               stroke={A6_TOKEN.routeGlow}
-              strokeWidth="16"
+              strokeWidth="20"
               strokeLinecap="round"
               strokeLinejoin="round"
-              opacity="0.38"
+              opacity="0.42"
             />
             <polyline
               points={route
@@ -617,7 +677,7 @@ function FallbackSvg({
                 .join(" ")}
               fill="none"
               stroke={A6_TOKEN.route}
-              strokeWidth="8"
+              strokeWidth="10"
               strokeLinecap="round"
               strokeLinejoin="round"
               opacity="1"
@@ -629,7 +689,7 @@ function FallbackSvg({
           const p = project(lock.lng + layout.lng, lock.lat + layout.lat, width, height);
           const selected = pick?.kind === "lock" && pick.id === lock.id;
           const name = LOCK_LABEL[lock.id] ?? lock.full.toUpperCase();
-          const anchor = lock.id === "westsluis" ? "end" : lock.id === "oostsluis" ? "start" : "middle";
+          const anchor = lock.id === "oostsluis" ? "start" : "middle";
           const emphasis = lockEmphasis(lock.id, via, paints, route.length > 1);
           const problem =
             emphasis === "pop" &&
@@ -819,6 +879,8 @@ export function DraftA6Map({
     decks?.setData(decksWithPaint(route.paints));
     const overlay = map.getSource("a6-overlay") as maplibregl.GeoJSONSource | undefined;
     overlay?.setData(overlays);
+    const halo = map.getSource("a6-closed-halo") as maplibregl.GeoJSONSource | undefined;
+    halo?.setData(closedHaloGeoJSON(route.paints));
     const line = map.getSource("a6-route") as maplibregl.GeoJSONSource | undefined;
     line?.setData(routeLineGeoJSON(route.advice.showRoute ? route.coordinates : []));
     const selected = map.getSource("a6-selected") as maplibregl.GeoJSONSource | undefined;
@@ -894,7 +956,7 @@ export function DraftA6Map({
       const next = {
         top: Math.ceil(top + 6),
         bottom: Math.ceil(bottom + 8),
-        left: phone ? 8 : 40,
+        left: phone ? 18 : 40,
         right: phone ? 8 : 40,
       };
       padRef.current = next;
